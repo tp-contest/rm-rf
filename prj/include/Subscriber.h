@@ -7,19 +7,20 @@
 
 #include "ISubscriber.h"
 #include "Handler.h"
+#include "Parser.h"
 #include "iostream"
 
 class Subscriber : public ISubscriber {
 private:
     Handler * handler;
+    Parser * parser;
     bool checkAnswer(const std::string & answer);
-public:
-    Subscriber() {
-        handler = nullptr;
-    };
 
-    Subscriber(Handler & hdlr) {
+public:
+    Subscriber() : handler(nullptr), parser(nullptr){};
+    Subscriber(Handler & hdlr, Parser & prsr) {
         handler = &hdlr;
+        parser = &prsr;
     }
     ~Subscriber() override {};
 
@@ -27,6 +28,14 @@ public:
         std::cout << answer << std::endl;
         handler->getInfo();
     };
+
+    Handler * getHandler() {
+        return handler;
+    }
+
+    Parser * getParser() {
+        return parser;
+    }
 };
 
 

@@ -32,11 +32,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+            <state relative-caret-position="420">
+              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -44,21 +44,30 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/DraftState.cpp">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/CommandHandler.h">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/tests/TestSubscriber.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+            <state relative-caret-position="375">
+              <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
               <folding>
-                <element signature="e#95#112#0" expanded="true" />
+                <element signature="e#36#55#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file:///usr/include/c++/7/bits/basic_string.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="198">
+              <caret line="508" column="6" selection-start-line="508" selection-start-column="6" selection-end-line="508" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/DraftState.cpp">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -71,10 +80,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/DocumentState.h">
+        <entry file="file://$PROJECT_DIR$/include/PublishedState.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="36" selection-start-line="17" selection-start-column="36" selection-end-line="17" selection-end-column="36" />
+            <state relative-caret-position="135">
+              <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="42" />
             </state>
           </provider>
         </entry>
@@ -104,28 +113,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Document.cpp">
+        <entry file="file://$PROJECT_DIR$/include/Subscriber.h">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
+            <state relative-caret-position="180">
+              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+              <folding>
+                <element signature="e#87#111#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/include/UserFile.h">
+        <entry file="file://$PROJECT_DIR$/src/Subscriber.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/JsonParser.cpp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="5" selection-start-line="6" selection-start-column="5" selection-end-line="6" selection-end-column="5" />
+            <state relative-caret-position="75">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
             </state>
           </provider>
         </entry>
@@ -145,7 +148,6 @@
         <option value="$PROJECT_DIR$/include/RequestHandler.h" />
         <option value="$PROJECT_DIR$/src/JsonParser.cpp" />
         <option value="$PROJECT_DIR$/include/JsonParser.h" />
-        <option value="$PROJECT_DIR$/tests/TestSubscriber.cpp" />
         <option value="$PROJECT_DIR$/include/Parser.h" />
         <option value="$PROJECT_DIR$/src/DocumentState.cpp" />
         <option value="$PROJECT_DIR$/include/PublishedState.h" />
@@ -158,11 +160,12 @@
         <option value="$PROJECT_DIR$/src/CommandHandler.cpp" />
         <option value="$PROJECT_DIR$/include/Publisher.h" />
         <option value="$PROJECT_DIR$/include/Handler.h" />
-        <option value="$PROJECT_DIR$/include/Subscriber.h" />
         <option value="$PROJECT_DIR$/include/CommandHandler.h" />
         <option value="$PROJECT_DIR$/include/Document.h" />
         <option value="$PROJECT_DIR$/include/DraftState.h" />
         <option value="$PROJECT_DIR$/src/main.cpp" />
+        <option value="$PROJECT_DIR$/include/Subscriber.h" />
+        <option value="$PROJECT_DIR$/tests/TestSubscriber.cpp" />
       </list>
     </option>
   </component>
@@ -219,6 +222,7 @@
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -238,8 +242,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Google Test.All in main.cpp">
-    <configuration name="All in SuiteName" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" nameIsGenerated="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="prj" TARGET_NAME="prj" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="prj" RUN_TARGET_NAME="prj" TEST_CLASS="SuiteName" TEST_MODE="SUITE_TEST">
+  <component name="RunManager" selected="Google Test.All in SubscriberSuite">
+    <configuration name="All in SubscriberSuite" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" nameIsGenerated="true" PASS_PARENT_ENVS_2="true" PROJECT_NAME="prj" TARGET_NAME="prj" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="prj" RUN_TARGET_NAME="prj" TEST_CLASS="SubscriberSuite" TEST_MODE="SUITE_TEST">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
         <option name="BeforeTestRunTask" enabled="true" />
@@ -282,7 +286,7 @@
       <item itemvalue="CMake Application.gtest" />
       <item itemvalue="CMake Application.gtest_main" />
       <item itemvalue="CMake Application.prj" />
-      <item itemvalue="Google Test.All in SuiteName" />
+      <item itemvalue="Google Test.All in SubscriberSuite" />
       <item itemvalue="Google Test.All in main.cpp" />
     </list>
     <recent_temporary>
@@ -304,62 +308,71 @@
       <workItem from="1554618080483" duration="5794000" />
       <workItem from="1554634554064" duration="14997000" />
       <workItem from="1554705654641" duration="170000" />
-      <workItem from="1554705925921" duration="20832000" />
+      <workItem from="1554705925921" duration="24681000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 16h 55m 08s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 13m 05s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 16h 55m 22s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 15m 33s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 16h 56m 11s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 16m 52s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 16h 56m 27s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 17m 16s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 16h 56m 54s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 17m 35s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 17h 15m 29s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 18m 53s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 17h 15m 52s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 19m 15s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 17h 16m 18s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 19m 31s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 17h 17m 21s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 21m 59s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
-    <history-entry file="All_in_main_cpp - 2019.04.08 at 17h 17m 45s.xml">
-      <configuration name="All in main.cpp" configurationId="CMakeGoogleTestRunConfigurationType" />
+    <history-entry file="All_in_SubscriberSuite - 2019.04.08 at 19h 28m 28s.xml">
+      <configuration name="All in SubscriberSuite" configurationId="CMakeGoogleTestRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41793000" />
+    <option name="totallyTimeSpent" value="45642000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1853" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2567792" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2567792" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32937366" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32937366" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32937366" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32937366" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.37580994" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32937366" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.32829374" />
@@ -371,6 +384,11 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/lib/googletest/googletest" />
+    </ignored-roots>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/lib/googletest/googletest/README.md">
@@ -403,13 +421,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/Parser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -434,13 +445,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Subscriber.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Handler.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -451,39 +455,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/PublishedState.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/Publisher.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="389">
           <caret line="26" column="6" selection-start-line="26" selection-start-column="6" selection-end-line="26" selection-end-column="6" />
           <folding>
             <element signature="e#85#109#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/Subscriber.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="27" column="27" selection-start-line="27" selection-start-column="27" selection-end-line="27" selection-end-column="27" />
-          <folding>
-            <element signature="e#87#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/TestSubscriber.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding>
-            <element signature="e#36#55#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -513,16 +490,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="7" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/include/CommandHandler.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
-          <folding>
-            <element signature="e#95#112#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -560,6 +527,30 @@
     <entry file="file://$PROJECT_DIR$/src/DraftState.cpp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/include/PublishedState.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Parser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="35" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/CommandHandler.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
+          <folding>
+            <element signature="e#95#112#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/include/DraftState.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -572,10 +563,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="1" lean-forward="true" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        <state relative-caret-position="420">
+          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Subscriber.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///usr/include/c++/7/bits/basic_string.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="508" column="6" selection-start-line="508" selection-start-column="6" selection-end-line="508" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/include/Subscriber.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding>
+            <element signature="e#87#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TestSubscriber.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="26" column="36" lean-forward="true" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding>
+            <element signature="e#36#55#0" expanded="true" />
           </folding>
         </state>
       </provider>

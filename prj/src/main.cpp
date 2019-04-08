@@ -5,9 +5,12 @@
 #include "../include/Publisher.h"
 #include "../include/Subscriber.h"
 #include "../include/CommandHandler.h"
+#include "../include/JsonParser.h"
+
+#include "gtest/gtest.h"
 
 int main() {
-    std::cout << "hello, world" << std::endl;
+    /*std::cout << "hello, world" << std::endl;
 
     Document document = UserFile();
     DraftState state1 = DraftState();
@@ -18,8 +21,11 @@ int main() {
     document.saveDocument();
 
     CommandHandler handler = CommandHandler();
-    Subscriber subscriber = Subscriber(handler);
+    JsonParser parser = JsonParser();
+    Subscriber subscriber = Subscriber(handler, parser);
     Publisher publisher = Publisher();
-    publisher.notifySubscriber(subscriber);
+    publisher.notifySubscriber(subscriber);*/
+    testing::InitGoogleTest();
+    RUN_ALL_TESTS();
     return 0;
 }
