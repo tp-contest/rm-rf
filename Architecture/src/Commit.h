@@ -10,13 +10,13 @@ private:
     time_t sendTime_;
     string result_;
 public:
-    Commit();
+    Commit(){};
 
     Commit(time_t sendTime) : sendTime_(sendTime){};
 
-    ~Commit();
+    ~Commit(){};
 
-    string getCommitId();
+    string getCommitId(){};
 
 };
 

@@ -1,8 +1,8 @@
 project(${CMAKE_PROJECT_NAME}_lib)
 
-set(HEADER_FILES Person.h Contest.h Commit.h)
+set(HEADER_FILES Person.h Contest.h Commit.h status.h)
 
-set(SOURCE_FILES Person.cpp Contest.cpp Commit.cpp User.cpp User.h status.cpp status.h)
+set(SOURCE_FILES Person.cpp Contest.cpp Commit.cpp User.cpp User.h)
 
 #if (EXISTS ${SOURCE_FILES})
     # The library contains header and source files.

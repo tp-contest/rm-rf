@@ -17,9 +17,9 @@ private:
     int memoryLimit_;
     map<string, Commit> commits_;
 public:
-    Contest(string title);
+    Contest(const string &title) {};
 
-    ~Contest();
+    ~Contest(){};
 
     status editTitle(string title);
 
@@ -31,7 +31,7 @@ public:
 
     status addCommit(const Commit &newCommit);
 
-    string getContestId();
+    string getContestId(){};
 };
 
 

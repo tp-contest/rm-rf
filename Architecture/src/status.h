@@ -9,9 +9,9 @@ using std::string;
 using std::list;
 
 enum status {
-    OK;
-    ERROR;
-    NOT_CONNECTED;
+    OK,
+    ERROR,
+    NOT_CONNECTED
 };
 
 

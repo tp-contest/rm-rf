@@ -9,7 +9,7 @@ private:
     string login_;
     string password_;
     string name_;
-    int sessionID_;
+    string sessionID_;
 public:
     Person();
 

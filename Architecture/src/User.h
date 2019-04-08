@@ -11,8 +11,8 @@ class User: public Person{
 private:
     map<string, Contest> contests_;
 public:
-    status applyForContest(const Contest &newContest);
-    status sendCommit(string ContestID);
+    status applyForContest(const Contest &newContest){};
+    status sendCommit(string ContestID){};
 };
 
 

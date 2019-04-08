@@ -9,7 +9,7 @@ Person::~Person() {
 }
 
 status Person::registration(const string &name, const string &login, const string &password) {
-    return ERROR;
+    return OK;
 }
 
 status Person::authorization(const string &login, const string &password) {
