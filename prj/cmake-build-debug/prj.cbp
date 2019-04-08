@@ -390,19 +390,10 @@
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/Document.cpp">
 			<Option target="prj"/>
 		</Unit>
-		<Unit filename="/home/d/CLionProjects/c_course/prj/src/DocumentState.cpp">
-			<Option target="prj"/>
-		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/DraftState.cpp">
 			<Option target="prj"/>
 		</Unit>
-		<Unit filename="/home/d/CLionProjects/c_course/prj/src/Handler.cpp">
-			<Option target="prj"/>
-		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/JsonParser.cpp">
-			<Option target="prj"/>
-		</Unit>
-		<Unit filename="/home/d/CLionProjects/c_course/prj/src/Parser.cpp">
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/PublishedState.cpp">
@@ -421,9 +412,6 @@
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestDocument.cpp">
-			<Option target="prj"/>
-		</Unit>
-		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestDocumentState.cpp">
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestDraftState.cpp">

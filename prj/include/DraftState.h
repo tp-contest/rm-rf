@@ -21,14 +21,15 @@ public:
     ~DraftState(){
 
     };
-    void saveDocument() override {
+    bool saveDocument() override {
         std::cout << "draft saving" << std::endl;
+        return false;
     }
-    void editDocument() override {
-
+    bool editDocument() override {
+        return false;
     };
-    void deleteDocument() override {
-
+    bool deleteDocument() override {
+        return false;
     };
 };
 

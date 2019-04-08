@@ -11,9 +11,9 @@ class DocumentState {
 public:
     DocumentState() {};
     ~DocumentState() {};
-    virtual void saveDocument() = 0;
-    virtual void editDocument() = 0;
-    virtual void deleteDocument() = 0;
+    virtual bool saveDocument() = 0;
+    virtual bool editDocument() = 0;
+    virtual bool deleteDocument() = 0;
 };
 
 #endif //PRJ_DOCUMENTSTATE_H

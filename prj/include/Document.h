@@ -31,7 +31,7 @@ public:
     virtual void deleteDocument() {};
 
     int calculateId();
-    
+
     void setId(int id);
     void setStartTime(time_t start);
     void setEndTime(time_t end);
@@ -39,6 +39,10 @@ public:
     int getId() const;
     time_t getStartTime() const;
     time_t getEndTime() const;
+
+    DocumentState * getState() {
+        return state;
+    }
 };
 
 

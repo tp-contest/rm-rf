@@ -31,6 +31,10 @@ public:
     };
     void pushDocument(int ID) {
     };
+
+    int getDocumentNumber() {
+        return documents.size();
+    }
 };
 
 
