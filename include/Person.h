@@ -8,6 +8,7 @@
 #include <iostream>
 #include <string>
 #include <list>
+#include "Status.h"
 
 using std::string;
 using std::list;
@@ -30,21 +31,21 @@ public:
         this->login = login; // utils.createLogin()
         this->name = name; // utils.createName()
         this->ID = "2133"; // utils.createUUID()
-        return 101;
+        return ERROR;
     };
     status authorization() {
         // handler sessionId
-        return 101;
+        return ERROR;
     };
     status logout() { return 101; };
     status rename(string name) {
 
-        return 101;
+        return ERROR;
     };
     status changePassword(string oldPass, string newPass) { return 101; };
     status setSessionId(string sessionId) {
         this->sessionId;
-        return 101;
+        return ERROR;
     }
 };
 
