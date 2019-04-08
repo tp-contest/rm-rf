@@ -6,10 +6,15 @@
 #define PRJ_SUBSCRIBER_H
 
 #include "ISubscriber.h"
+#include "Handler.h"
 
 class Subscriber : public ISubscriber {
+private:
+    Handler * handler;
 public:
-    Subscriber() {};
+    Subscriber() {
+        handler = nullptr;
+    };
     ~Subscriber() {};
 
     void handleServerAnswer(const std::string & answer) override ;

@@ -6,13 +6,10 @@
 #define PRJ_ISUBSCRIBER_H
 
 #include <string>
-#include "Handler.h"
 
 class ISubscriber {
-private:
-    Handler * handler;
 public:
-    virtual void handleServerAnswer(const std::string & answer);
+    virtual void handleServerAnswer(const std::string & answer) = 0;
 };
 
 

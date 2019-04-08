@@ -5,5 +5,5 @@
 #include "../include/Subscriber.h"
 
 void Subscriber::handleServerAnswer(const std::string & answer) {
-ISubscriber::handleServerAnswer(answer);
+    //ISubscriber::handleServerAnswer(answer);
 }

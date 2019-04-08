@@ -414,6 +414,9 @@
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/main.cpp">
 			<Option target="prj"/>
 		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestSubscriber.cpp">
+			<Option target="prj"/>
+		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

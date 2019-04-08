@@ -7,7 +7,8 @@
 
 
 class Parser {
-    virtual void parseRequest(); // return Document
+public:
+    virtual void parseRequest() = 0; // return Document
 };
 
 

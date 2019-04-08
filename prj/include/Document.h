@@ -19,6 +19,10 @@ public:
     virtual void saveDocument();
     virtual void fixDocument();
     virtual void deleteDocument();
+    void setState(const DocumentState &state);
+    void setId(int id);
+    void setStartTime(time_t startTime);
+    void setEndTime(time_t endTime);
 };
 
 

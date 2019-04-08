@@ -10,7 +10,7 @@
 
 class JsonParser: public Parser {
 private:
-    Subscriber subscriber;
+    Subscriber * subscriber;
 public:
     void parseRequest() override ;
 };

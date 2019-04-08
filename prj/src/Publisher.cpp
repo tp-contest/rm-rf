@@ -4,14 +4,14 @@
 
 #include "../include/Publisher.h"
 
-bool Publisher::subbscribe(const ISubscriber &subscriber) {
+bool Publisher::subbscribe(const Subscriber &subscriber) {
     return false;
 }
 
-bool Publisher::unsubbscribe(const ISubscriber &subscriber) {
+bool Publisher::unsubbscribe(const Subscriber &subscriber) {
     return false;
 }
 
-bool Publisher::notifySubscriber(const ISubscriber &subscriber) {
+bool Publisher::notifySubscriber(const Subscriber &subscriber) {
     return false;
 }

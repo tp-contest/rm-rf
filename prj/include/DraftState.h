@@ -8,8 +8,8 @@
 #include "DocumentState.h"
 
 class DraftState : public DocumentState {
-public:
 private:
+public:
 
 };
 
