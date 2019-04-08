@@ -12,10 +12,17 @@ class Invoker{
        Document doc;
        CommandResolver* command;
 public:
-       void Insert(ofstream * _fin, const string _name){
-           return 1;
+       void Insert(string * _fin, const string _name){
+           command = new InsertCommand(_fin, _name);
+           command->setDocument(&doc);
+           command->Execute();
+           DoneCommands.push_back(command);
        }
+
+
+
 }
 
 
 #endif // INVOKER
+

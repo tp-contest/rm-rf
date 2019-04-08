@@ -11,7 +11,10 @@ public:
 
     void Execute(){
         doc->Insert(fin, name);
+        return doc;
     }
+
 };
 
 #endif // INSERTCOMMAND
+
