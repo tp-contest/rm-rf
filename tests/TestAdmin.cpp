@@ -4,7 +4,7 @@
 
 #include <iostream>
 #include <gtest/gtest.h>
-#include "../src/admin/admin.h"
+#include "../include/Admin.h"
 #include "assert.h"
 
 TEST(AdminTest, costructorTest) {

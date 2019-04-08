@@ -7,7 +7,7 @@
 
 #include <string>
 #include <map>
-#include "../commit/Commit.h"
+#include "Commit.h"
 
 using std::map;
 

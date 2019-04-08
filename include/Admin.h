@@ -5,8 +5,8 @@
 #ifndef RM_RF_ADMIN_H
 #define RM_RF_ADMIN_H
 
-#include "../person/Person.h"
-#include "../contest/contest.h"
+#include "Person.h"
+#include "Contest.h"
 #include "../handler/handler.h"
 #include "map"
 
