@@ -369,6 +369,9 @@
 		<Unit filename="/home/d/CLionProjects/c_course/prj/include/Subscriber.h">
 			<Option target="prj"/>
 		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/include/UserFile.h">
+			<Option target="prj"/>
+		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/lib/googletest/googlemock/src/gmock-all.cc">
 			<Option target="gmock"/>
 		</Unit>

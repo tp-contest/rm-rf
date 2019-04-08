@@ -7,17 +7,26 @@
 
 #include "ISubscriber.h"
 #include "Handler.h"
+#include "iostream"
 
 class Subscriber : public ISubscriber {
 private:
     Handler * handler;
+    bool checkAnswer(const std::string & answer);
 public:
     Subscriber() {
         handler = nullptr;
     };
-    ~Subscriber() {};
 
-    void handleServerAnswer(const std::string & answer) override ;
+    Subscriber(Handler & hdlr) {
+        handler = &hdlr;
+    }
+    ~Subscriber() override {};
+
+    void handleServerAnswer(const std::string & answer) override {
+        std::cout << answer << std::endl;
+        handler->getInfo();
+    };
 };
 
 

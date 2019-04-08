@@ -6,14 +6,13 @@
 #define PRJ_HANDLER_H
 
 #include <string>
-//#include "Publisher.h"
 
 class Handler {
 private:
     bool readyDataBit = false;
 public:
-    Handler();
-    ~Handler();
+    Handler() {};
+    ~Handler() {};
     virtual void pushToServer(const std::string & mess) = 0;
     virtual void getInfo() = 0;
 };

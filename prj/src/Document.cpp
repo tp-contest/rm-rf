@@ -1,11 +1,17 @@
 //
-// Created by d on 07.04.19.
-//
 
 #include "../include/Document.h"
 
-void Document::setState(const DocumentState &state) {
-    Document::state = state;
+//
+// Created by d on 07.04.19.
+
+Document::Document() {
+    std::cout << "hello doc consstr" << std::endl;
+    state = nullptr;
+}
+
+Document::~Document() {
+
 }
 
 void Document::setId(int id) {
@@ -18,4 +24,16 @@ void Document::setStartTime(time_t startTime) {
 
 void Document::setEndTime(time_t endTime) {
     Document::endTime = endTime;
+}
+
+int Document::getId() const {
+    return ID;
+}
+
+time_t Document::getStartTime() const {
+    return startTime;
+}
+
+time_t Document::getEndTime() const {
+    return endTime;
 }

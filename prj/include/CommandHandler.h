@@ -8,17 +8,25 @@
 #include <vector>
 #include "Document.h"
 #include "Handler.h"
+#include "Publisher.h"
 
 class CommandHandler: public Handler {
 private:
-    //Publisher * publisher;
-    std::vector<Document*> documents;
+    Publisher * publisher;
+    std::vector<Document *> documents;
 public:
-    CommandHandler();
-    ~CommandHandler();
-    void viewToDocuments();
-    void pushToServer(const std::string & mess) override;
-    void getInfo() override ;
+    CommandHandler() {};
+    ~CommandHandler() {};
+    void pushToServer(const std::string & mess) override {
+
+    };
+    void getInfo() override {
+        std::cout << "COMMAND HANDLER GET INFO" << std::endl;
+    };
+    int addDocument();
+    void editDocument(int ID);
+    void deleteDocument(int ID);
+    void pushDocument(int ID);
 };
 
 

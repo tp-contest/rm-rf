@@ -5,18 +5,26 @@
 #ifndef PRJ_PUBLISHER_H
 #define PRJ_PUBLISHER_H
 
-#include "Subscriber.h"
+#include "ISubscriber.h"
 #include "vector"
+#include "string"
 
 class Publisher {
 private:
-    std::vector<Subscriber *> subscribers;
+    //std::vector<ISubscriber *> subscribers;
+    ISubscriber * subscriber;
 public:
-    Publisher();
-    ~Publisher();
-    bool subbscribe(const Subscriber & subscriber);
-    bool unsubbscribe(const Subscriber & subscriber);
-    bool notifySubscriber(const Subscriber & subscriber);
+    Publisher() {};
+    ~Publisher() {};
+
+    bool addSubscriber(ISubscriber & mysubscriber) {
+        *subscriber = mysubscriber;
+    };
+    bool unsubbscribe(const ISubscriber & mysubscriber);
+    bool notifySubscriber(ISubscriber & mysubscriber) {
+        std::string myaswer = "ANSWER FROM SERVER";
+        mysubscriber.handleServerAnswer(myaswer);
+    };
 
 };
 

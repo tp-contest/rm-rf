@@ -5,11 +5,10 @@
 #ifndef PRJ_PUBLISHEDSTATE_H
 #define PRJ_PUBLISHEDSTATE_H
 
-#include "DocumentState.h"
+#include "Document.h"
 
 class PublishedState: public DocumentState {
 
 };
-
 
 #endif //PRJ_PUBLISHEDSTATE_H
