@@ -1,18 +1,18 @@
-//
-// Created by yu on 08.04.19.
-//
-
 #ifndef MYPROJECT_USER_H
 #define MYPROJECT_USER_H
 
+#include <map>
 #include "Person.h"
 #include "Contest.h"
 
+using std::map;
+
 class User: public Person{
 private:
-    list<Contest> participation;
+    map<string, Contest> contests_;
 public:
-    bool applyForContest(Contest newParticipation);
+    status applyForContest(const Contest &newContest);
+    status sendCommit(string ContestID);
 };
 
 

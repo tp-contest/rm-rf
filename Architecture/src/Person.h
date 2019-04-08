@@ -1,42 +1,30 @@
 #ifndef MYPROJECT_PERSON_H
 #define MYPROJECT_PERSON_H
 
-#include <iostream>
-#include <string>
-#include <list>
-
-using std::string;
-using std::list;
-
+#include "status.h"
 
 class Person {
 private:
-    int ID;
-    string login;
-    string password;
-    string name;
-    bool isAdmin;
+    string ID_;
+    string login_;
+    string password_;
+    string name_;
+    int sessionID_;
 public:
     Person();
+
     ~Person();
-    bool registration(string name, string login, string password);
-    bool authorization(string login, string password);
-    bool logout();
-    bool rename(string name);
-    bool changePassword(string oldPass, string newPass);
-};
 
-/*class User: public Person{
-private:
-    list<Contest> participation;
-public:
-    bool applyForContest(Contest newParticipation);
-};
+    status registration(const string &name, const string &login, const string &password);
 
-class Admin: public Person{
-private:
-public:
-};*/
+    status authorization(const string &login, const string &password);
+
+    status logout();
+
+    status rename(const string &name);
+
+    status changePassword(const string &oldPass, const string &newPass);
+};
 
 
 #endif //MYPROJECT_PERSON_H

@@ -8,24 +8,24 @@ Person::~Person() {
 
 }
 
-bool registration(string name, string login, string password) {
-    return false;
+status Person::registration(const string &name, const string &login, const string &password) {
+    return ERROR;
 }
 
-bool Person::authorization(string login, string password) {
-    return true;
+status Person::authorization(const string &login, const string &password) {
+    return OK;
 }
 
-bool Person::logout() {
-    return false;
+status Person::logout() {
+    return ERROR;
 }
 
-bool Person::rename(string name) {
-    return false;
+status Person::rename(const string &name) {
+    return ERROR;
 
 }
 
-bool Person::changePassword(string oldPass, string newPass) {
-    return false;
+status Person::changePassword(const string &oldPass, const string &newPass) {
+    return ERROR;
 
 }

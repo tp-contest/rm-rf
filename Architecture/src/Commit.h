@@ -1,25 +1,22 @@
-//
-// Created by yu on 08.04.19.
-//
-
 #ifndef MYPROJECT_COMMIT_H
 #define MYPROJECT_COMMIT_H
 
-#include <iostream>
-#include <string>
-
-using std::string;
+#include "status.h"
 
 class Commit {
 
 private:
-    int ID;
-    time_t sendTime;
-    string result;
+    string ID_;
+    time_t sendTime_;
+    string result_;
 public:
     Commit();
 
+    Commit(time_t sendTime) : sendTime_(sendTime){};
+
     ~Commit();
+
+    string getCommitId();
 
 };
 

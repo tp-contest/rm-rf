@@ -1,30 +1,37 @@
 #ifndef MYPROJECT_CONTEST_H
 #define MYPROJECT_CONTEST_H
 
-#include <string>
-#include <list>
-
+#include <map>
+#include "status.h"
 #include "Commit.h"
 
-using std::list;
-
+using std::map;
 
 class Contest {
 private:
-    int ID;
-    string Title;
-    time_t deadline;
-    string Task;
-    int timeLimit;
-    int memoryLimit;
-    list<Commit> attempts;
+    string ID_;
+    string title_;
+    time_t deadline_;
+    string task_;
+    int timeLimit_;
+    int memoryLimit_;
+    map<string, Commit> commits_;
 public:
-    Contest(string Title);
+    Contest(string title);
+
     ~Contest();
-    bool changeTask(string Task);
-    bool changeLimits(int timeLimit, int memoryLimit);
-    bool changeDeadline(time_t deadline);
-    bool addCommit(Commit newAttempt);
+
+    status editTitle(string title);
+
+    status editTask(string Task);
+
+    status changeLimits(int timeLimit, int memoryLimit);
+
+    status editDeadline(time_t deadline);
+
+    status addCommit(const Commit &newCommit);
+
+    string getContestId();
 };
 
 
