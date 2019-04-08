@@ -14,6 +14,11 @@ Document::~Document() {
 
 }
 
+int Document::calculateId() {
+    ID = 0;
+    return ID;
+};
+
 void Document::setId(int id) {
     ID = id;
 }

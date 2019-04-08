@@ -25,8 +25,10 @@ public:
     ~Subscriber() override {};
 
     void handleServerAnswer(const std::string & answer) override {
-        std::cout << answer << std::endl;
-        handler->getInfo();
+        if (handler != nullptr && answer.c_str() != nullptr) {
+            handler->getInfo();
+            std::cout << answer << std::endl;
+        }
     };
 
     Handler * getHandler() {

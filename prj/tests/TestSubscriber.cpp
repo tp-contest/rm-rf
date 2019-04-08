@@ -11,6 +11,7 @@
 #include "assert.h"
 #include "../include/JsonParser.h"
 
+
 TEST(SubscriberSuite, costructorTest) {
     Subscriber * subscriber = new Subscriber();
     ASSERT_NE(nullptr, subscriber);
@@ -29,6 +30,7 @@ TEST(SubscriberSuite, handleServerAnswerTest1) {
 }
 
 TEST(SubscriberSuite, handleServerAnswerTest2) {
-    //Subscriber sbsc = Subscriber();
-    //sbsc.handleServerAnswer(nullptr);
+    Subscriber sbsc = Subscriber();
+    const std::string str = "HELLO";
+    sbsc.handleServerAnswer(str);
 }

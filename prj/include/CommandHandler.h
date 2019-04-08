@@ -23,10 +23,14 @@ public:
     void getInfo() override {
         std::cout << "COMMAND HANDLER GET INFO" << std::endl;
     };
-    int addDocument();
-    void editDocument(int ID);
-    void deleteDocument(int ID);
-    void pushDocument(int ID);
+    void addDocument(const Document & document) {
+    };
+    void editDocument(int ID) {
+    };
+    void deleteDocument(int ID) {
+    };
+    void pushDocument(int ID) {
+    };
 };
 
 

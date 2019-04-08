@@ -4,6 +4,7 @@
 
 #include "../include/JsonParser.h"
 
-void JsonParser::parseRequest() {
-
+std::string JsonParser::parseRequest(const std::string & jsonMess) {
+    std::string result = "";
+    return result;
 }

@@ -11,11 +11,9 @@ class DocumentState {
 public:
     DocumentState() {};
     ~DocumentState() {};
-    virtual void saveDocument() {
-        std::cout << "hello saving" << std::endl;
-    };
-    virtual void editDocument() {};
-    virtual void deleteDocument() {};
+    virtual void saveDocument() = 0;
+    virtual void editDocument() = 0;
+    virtual void deleteDocument() = 0;
 };
 
 #endif //PRJ_DOCUMENTSTATE_H

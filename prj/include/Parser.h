@@ -5,10 +5,11 @@
 #ifndef PRJ_PARSER_H
 #define PRJ_PARSER_H
 
+#include <string>
 
 class Parser {
 public:
-    virtual void parseRequest() = 0; // return Document
+    virtual std::string parseRequest(const std::string & jsonMess) = 0; // return Document
 };
 
 

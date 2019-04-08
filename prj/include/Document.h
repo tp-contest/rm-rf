@@ -30,9 +30,11 @@ public:
     virtual void editDocument() {};
     virtual void deleteDocument() {};
 
+    int calculateId();
+    
     void setId(int id);
-    void setStartTime(time_t startTime);
-    void setEndTime(time_t endTime);
+    void setStartTime(time_t start);
+    void setEndTime(time_t end);
 
     int getId() const;
     time_t getStartTime() const;

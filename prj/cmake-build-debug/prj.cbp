@@ -417,7 +417,28 @@
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/main.cpp">
 			<Option target="prj"/>
 		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestCommandHandler.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestDocument.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestDocumentState.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestDraftState.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestJsonParser.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestPublishedState.cpp">
+			<Option target="prj"/>
+		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestSubscriber.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/tests/TestUserFile.cpp">
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/CMakeLists.txt">

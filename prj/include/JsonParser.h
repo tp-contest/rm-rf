@@ -12,7 +12,7 @@ class JsonParser: public Parser {
 private:
     Subscriber * subscriber;
 public:
-    void parseRequest() override ;
+    std::string parseRequest(const std::string & jsonMess) override ;
 };
 
 
