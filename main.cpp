@@ -7,7 +7,7 @@
 
 int main() {
     Admin admin;
-    if (admin.createContest("title", "task", 0)) {
+    if (admin.createContest("title", "task", 0) != "") {
         std::cout << "create";
     } else {
         std::cout << "not create";

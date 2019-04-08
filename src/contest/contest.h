@@ -9,8 +9,10 @@
 #include <map>
 #include "../commit/Commit.h"
 
-using std::list;
 using std::map;
+
+//TODO:: create enum status list
+typedef int status;
 
 class Contest {
 private:
@@ -54,11 +56,12 @@ public:
         return true;
     };
 
-    bool changeTask(string Task) {};
-    bool changeLimits(int timeLimit, int memoryLimit) {};
-    bool changeDeadline(time_t deadline) {};
-    bool addCommit(Commit& commit) {
+    status changeTask(string Task) { return 101; };
+    status changeLimits(int timeLimit, int memoryLimit) { return 101; };
+    status changeDeadline(time_t deadline) { return 101; };
+    status addCommit(Commit& commit) {
         commits.insert(std::pair<string, Commit>(commit.getCommitId(), commit));
+        return 101;
     };
     string getContestId() {
         return this->ID;

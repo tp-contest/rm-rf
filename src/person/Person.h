@@ -23,19 +23,19 @@ private:
     string name;
     string sessionId;
 public:
-    Person() {
-        this->password = "1111"; // utils.createPassword()
-        this->login = "sanya"; // utils.createLogin()
-        this->name = "sss"; // utils.createName()
-        this->ID = "2133"; // utils.createUUID()
-    }
-    Person(string name, string login, string password) : name(name), login(login), password(password) {};
+    Person() {};
     ~Person() {};
-    status registration() {};
-    status authorization() {};
-    status logout() {};
-    status rename(string name) {};
-    status changePassword(string oldPass, string newPass) {};
+    status registration(const string name, const string login, const string password) {
+        this->password = password; // utils.createPassword()
+        this->login = login; // utils.createLogin()
+        this->name = name; // utils.createName()
+        this->ID = "2133"; // utils.createUUID()
+        return 101;
+    };
+    status authorization() { return 101; };
+    status logout() { return 101; };
+    status rename(string name) { return 101; };
+    status changePassword(string oldPass, string newPass) { return 101; };
 };
 
 #endif //_LIB_PERSON_H

@@ -21,6 +21,8 @@ class Admin: public Person {
 private:
     map<string, Contest> contests;
 public:
+    Admin() {}
+    ~Admin() {}
     string createContest(string title, string task, time_t deadline) {
         Contest contest(title, task, deadline);
         contests.insert(std::pair<string, Contest>(contest.getContestId(), contest));
