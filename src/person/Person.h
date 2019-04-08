@@ -32,10 +32,20 @@ public:
         this->ID = "2133"; // utils.createUUID()
         return 101;
     };
-    status authorization() { return 101; };
+    status authorization() {
+        // handler sessionId
+        return 101;
+    };
     status logout() { return 101; };
-    status rename(string name) { return 101; };
+    status rename(string name) {
+
+        return 101;
+    };
     status changePassword(string oldPass, string newPass) { return 101; };
+    status setSessionId(string sessionId) {
+        this->sessionId;
+        return 101;
+    }
 };
 
 #endif //_LIB_PERSON_H
