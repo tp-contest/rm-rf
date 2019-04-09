@@ -23,10 +23,14 @@ add_executable(prj
         include/Subscriber.h
         include/User.h
         include/UserFile.h
+        src/Admin.cpp
         src/CommandHandler.cpp
+        src/Commit.cpp
+        src/Contest.cpp
         src/Document.cpp
         src/DraftState.cpp
         src/JsonParser.cpp
+        src/Person.cpp
         src/PublishedState.cpp
         src/Publisher.cpp
         src/Subscriber.cpp
