@@ -4,6 +4,7 @@
 #include <map>
 #include "Person.h"
 #include "Contest.h"
+#include "Status.h"
 
 using std::map;
 
@@ -11,8 +12,8 @@ class User: public Person{
 private:
     map<string, Contest> contests_;
 public:
-    status applyForContest(const Contest &newContest);
-    status sendCommit(string ContestID);
+    Status applyForContest(const Contest &newContest) { return Ok; };
+    Status sendCommit(string ContestID) { return Ok };
 };
 
 

@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <string>
+#include "../include/Status.h"
 
 //TODO:: create enum status list
 typedef int status;
@@ -23,7 +24,7 @@ public:
     Commit(time_t sendTime) : sendTime(sendTime) {};
     ~Commit() {};
     string getCommitId();
-    status setId(string id);
+    Status setId(string id);
 };
 
 #endif //_LIB_COMMIT_H

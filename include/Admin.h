@@ -7,30 +7,22 @@
 
 #include "Person.h"
 #include "Contest.h"
-#include "../handler/handler.h"
+#include "Handler.h"
 #include "map"
 
 using std::string;
 using std::list;
 using std::map;
 
-//TODO:: create enum status list
-typedef int status;
-
-class Admin: public Person {
+class Admin: public Person, Handler {
 private:
     map<string, Contest> contests;
 public:
     Admin() {}
     ~Admin() {}
     string createContest(string title, string task, time_t deadline);
-    status editContest(string contestId, string title, string task, time_t deadline);
-    status deleteContest(string contestId);
-    status getStatUsersByContest(string contestId);
-    status getStatContest(string contestId);
-    status showContestByUser(string userId);
-    status showUsersCommitsByContest(string contestId);
-    status openUserCodeFromLastCommit(string commitId);
+    Status editContest(string contestId, string title, string task, time_t deadline);
+    Status deleteContest(string contestId);
 };
 
 #endif //RM_RF_ADMIN_H

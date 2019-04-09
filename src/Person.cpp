@@ -4,19 +4,19 @@
 
 #include "../include/Person.h"
 
-status Person::registration(const string name, const string login, const string password) {
+Status Person::registration(const string name, const string login, const string password) {
     this->password = password; // utils.createPassword()
     this->login = login; // utils.createLogin()
     this->name = name; // utils.createName()
     this->ID = "2133"; // utils.createUUID()
-    return ERROR;
+    return Ok;
 }
 
-status Person::authorization()  {
+Status Person::authorization()  {
     // handler sessionId
     return ERROR;
 }
 
-status Person::rename(string name)  {
+Status Person::rename(string name)  {
     return ERROR;
 }

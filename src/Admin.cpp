@@ -3,54 +3,31 @@
 //
 
 #include "../include/Admin.h"
+#include "../include/Handler.h"
+#include "../include/Status.h"
 
-status Admin::editContest(string contestId, string title, string task, time_t deadline) {
+Status Admin::editContest(string contestId, string title, string task, time_t deadline) {
     Contest contest = contests.find(contestId)->second;
     if (!contest.editTask(task)) {
-        return -1;
+        return ERROR;
     }
     if (!contest.editTitle(title)) {
-        return -1;
+        return ERROR;
     }
     if (!contest.editDeadline(deadline)) {
-        return -1;
+        return ERROR;
     }
     contests.at(contestId) = contest;
-    return 101;
+    return Ok;
 };
 
-status Admin::createContest(string title, string task, time_t deadline) {
+string Admin::createContest(string title, string task, time_t deadline) {
     Contest contest(title, task, deadline);
     contests.insert(std::pair<string, Contest>(contest.getContestId(), contest));
     return contest.getContestId();
 }
 
-status Admin::deleteContest(string contestId) {
+Status Admin::deleteContest(string contestId) {
     contests.erase(contestId);
-    return 101;
-}
-
-status Admin::getStatUsersByContest(string contestId) {
-    Handler handler;
-    return handler.getStatUsersByContest(contestId);
-}
-
-status Admin::getStatContest(string contestId)  {
-    Handler handler;
-    return handler.getStatContest(contestId);
-}
-
-status Admin::showContestByUser(string userId) {
-    Handler handler;
-    return handler.showContestByUser(userId);
-}
-
-status Admin::showUsersCommitsByContest(string contestId) {
-    Handler handler;
-    return handler.showUsersCommitsByContest(contestId);
-}
-
-status Admin::openUserCodeFromLastCommit(string commitId)  {
-    Handler handler;
-    return handler.openUserCodeFromLastCommit(commitId);
+    return Ok;
 }

@@ -19,11 +19,13 @@ public:
 
     bool addSubscriber(ISubscriber & mysubscriber) {
         *subscriber = mysubscriber;
+        return true;
     };
     bool unsubbscribe(const ISubscriber & mysubscriber);
     bool notifySubscriber(ISubscriber & mysubscriber) {
         std::string myaswer = "ANSWER FROM SERVER";
         mysubscriber.handleServerAnswer(myaswer);
+        return true;
     };
 
 };

@@ -3,13 +3,14 @@
 //
 
 #include "../include/Commit.h"
+#include "../include/Status.h"
 #include <string>
 
 string Commit::getCommitId() {
     return this->ID;
 }
 
-status Commit::setId(string id) {
+Status Commit::setId(string id) {
     this->ID = id;
-    return 101;
+    return Ok;
 }

@@ -8,11 +8,9 @@
 #include <string>
 #include <map>
 #include "Commit.h"
+#include "../include/Status.h"
 
 using std::map;
-
-//TODO:: create enum status list
-typedef int status;
 
 class Contest {
 private:
@@ -25,7 +23,9 @@ private:
     map<string, Commit> commits;
 public:
     Contest(string title);
-    Contest(string title, string task, time_t deadline) : title(title), task(task), deadline(deadline);
+    Contest(string title, string task, time_t deadline) : title(title), task(task), deadline(deadline) {
+        this->ID = '1'; // tools.GenerateUUID();
+    };
     ~Contest() {};
 
     bool editTitle(string title);
@@ -34,10 +34,10 @@ public:
 
     bool editTask(string task);
 
-    status changeTask(string Task) { return 101; };
-    status changeLimits(int timeLimit, int memoryLimit) { return 101; };
-    status changeDeadline(time_t deadline) { return 101; };
-    status addCommit(Commit& commit);
+    Status changeTask(string Task) { return Ok; };
+    Status changeLimits(int timeLimit, int memoryLimit) { return Ok; };
+    Status changeDeadline(time_t deadline) { return Ok; };
+    Status addCommit(Commit& commit);
     string getContestId() {
         return this->ID;
     }

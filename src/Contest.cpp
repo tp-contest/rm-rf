@@ -8,10 +8,6 @@ Contest::Contest(string title) {
     this->ID = '1'; // tools.GenerateUUID();
 }
 
-Contest::Contest(string title, string task, time_t deadline) {
-    this->ID = '1'; // tools.GenerateUUID();
-}
-
 bool Contest::editTitle(string title)  {
     if (title == "") {
       return false;
@@ -36,7 +32,7 @@ bool Contest::editTask(string task) {
     return true;
 }
 
-status Contest::addCommit(Commit &commit) {
+Status Contest::addCommit(Commit &commit) {
     commits.insert(std::pair<string, Commit>(commit.getCommitId(), commit));
-    return 101;
+    return Ok;
 }

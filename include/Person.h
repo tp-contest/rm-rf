@@ -13,9 +13,6 @@
 using std::string;
 using std::list;
 
-//TODO:: create enum status list
-typedef int status;
-
 class Person {
 private:
     string ID;
@@ -26,12 +23,12 @@ private:
 public:
     Person() {};
     ~Person() {};
-    status registration(const string name, const string login, const string password);
-    status authorization();
-    status logout() { return 101; };
-    status rename(string name);
-    status changePassword(string oldPass, string newPass) { return 101; };
-    status setSessionId(string sessionId) {
+    Status registration(const string name, const string login, const string password);
+    Status authorization();
+    Status logout() { return Ok; };
+    Status rename(string name);
+    Status changePassword(string oldPass, string newPass) { return Ok; };
+    Status setSessionId(string sessionId) {
         this->sessionId;
         return ERROR;
     };
