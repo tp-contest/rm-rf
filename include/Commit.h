@@ -8,6 +8,9 @@
 #include <iostream>
 #include <string>
 
+//TODO:: create enum status list
+typedef int status;
+
 using std::string;
 
 class Commit {
@@ -19,9 +22,8 @@ public:
     Commit() {};
     Commit(time_t sendTime) : sendTime(sendTime) {};
     ~Commit() {};
-    string getCommitId() {
-        return this->ID;
-    }
+    string getCommitId();
+    status setId(string id);
 };
 
 #endif //_LIB_COMMIT_H

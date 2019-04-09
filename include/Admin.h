@@ -23,49 +23,14 @@ private:
 public:
     Admin() {}
     ~Admin() {}
-    string createContest(string title, string task, time_t deadline) {
-        Contest contest(title, task, deadline);
-        contests.insert(std::pair<string, Contest>(contest.getContestId(), contest));
-        return contest.getContestId();
-    };
-    status editContest(string contestId, string title, string task, time_t deadline) {
-        Contest contest = contests.find(contestId)->second;
-        if (!contest.editTask(task)) {
-            return -1;
-        }
-        if (!contest.editTitle(title)) {
-            return -1;
-        }
-        if (!contest.editDeadline(deadline)) {
-            return -1;
-        }
-        contests.at(contestId) = contest;
-        return 101;
-    };
-    status deleteContest(string contestId) {
-        contests.erase(contestId);
-        return 101;
-    };
-    status getStatUsersByContest(string contestId) {
-        Handler handler;
-        return handler.getStatUsersByContest(contestId);
-    };
-    status getStatContest(string contestId) {
-        Handler handler;
-        return handler.getStatContest(contestId);
-    };
-    status showContestByUser(string userId) {
-        Handler handler;
-        return handler.showContestByUser(userId);
-    };
-    status showUsersCommitsByContest(string contestId) {
-        Handler handler;
-        return handler.showUsersCommitsByContest(contestId);
-    };
-    status openUserCodeFromLastCommit(string commitId) {
-        Handler handler;
-        return handler.openUserCodeFromLastCommit(commitId);
-    };
+    string createContest(string title, string task, time_t deadline);
+    status editContest(string contestId, string title, string task, time_t deadline);
+    status deleteContest(string contestId);
+    status getStatUsersByContest(string contestId);
+    status getStatContest(string contestId);
+    status showContestByUser(string userId);
+    status showUsersCommitsByContest(string contestId);
+    status openUserCodeFromLastCommit(string commitId);
 };
 
 #endif //RM_RF_ADMIN_H

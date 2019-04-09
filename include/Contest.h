@@ -24,45 +24,20 @@ private:
     int memoryLimit;
     map<string, Commit> commits;
 public:
-    Contest(string title) {
-        this->ID = '1'; // tools.GenerateUUID();
-    };
-    Contest(string title, string task, time_t deadline) : title(title), task(task), deadline(deadline) {
-        this->ID = '1'; // tools.GenerateUUID();
-    };
+    Contest(string title);
+    Contest(string title, string task, time_t deadline) : title(title), task(task), deadline(deadline);
     ~Contest() {};
 
-    bool editTitle(string title) {
-        if (title == "") {
-            return false;
-        }
-        this->title = title;
-        return true;
-    };
+    bool editTitle(string title);
 
-    bool editDeadline(time_t deadline) {
-        if (deadline < 0) {
-            return false;
-        }
-        this->deadline = deadline;
-        return true;
-    };
+    bool editDeadline(time_t deadline);
 
-    bool editTask(string task) {
-        if (task == "") {
-            return false;
-        }
-        this->task = task;
-        return true;
-    };
+    bool editTask(string task);
 
     status changeTask(string Task) { return 101; };
     status changeLimits(int timeLimit, int memoryLimit) { return 101; };
     status changeDeadline(time_t deadline) { return 101; };
-    status addCommit(Commit& commit) {
-        commits.insert(std::pair<string, Commit>(commit.getCommitId(), commit));
-        return 101;
-    };
+    status addCommit(Commit& commit);
     string getContestId() {
         return this->ID;
     }

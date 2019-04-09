@@ -8,7 +8,7 @@
 #include "assert.h"
 
 TEST(AdminTest, costructorTest) {
-    //ASSERT_NE(NULL, Subscriber());
+    //ASSERT_NE(NULL, Admin());
 }
 
 TEST(AdminTest, registration) {

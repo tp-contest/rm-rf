@@ -26,27 +26,15 @@ private:
 public:
     Person() {};
     ~Person() {};
-    status registration(const string name, const string login, const string password) {
-        this->password = password; // utils.createPassword()
-        this->login = login; // utils.createLogin()
-        this->name = name; // utils.createName()
-        this->ID = "2133"; // utils.createUUID()
-        return ERROR;
-    };
-    status authorization() {
-        // handler sessionId
-        return ERROR;
-    };
+    status registration(const string name, const string login, const string password);
+    status authorization();
     status logout() { return 101; };
-    status rename(string name) {
-
-        return ERROR;
-    };
+    status rename(string name);
     status changePassword(string oldPass, string newPass) { return 101; };
     status setSessionId(string sessionId) {
         this->sessionId;
         return ERROR;
-    }
+    };
 };
 
 #endif //_LIB_PERSON_H
