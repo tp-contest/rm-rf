@@ -41,6 +41,9 @@ public:
     string getContestId() {
         return this->ID;
     }
+    string getTitle() {
+        return this->title;
+    }
 };
 
 #endif //_LIB_CONTEST_H
