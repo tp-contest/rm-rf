@@ -43,6 +43,7 @@ add_executable(prj
         tests/TestSubscriber.cpp
         tests/TestUserFile.cpp
         )
-add_test(prj src/Subscriber.cpp include/Subscriber.h src/ src/main_test.cpp)
+add_test(prj src/Subscriber.cpp include/Subscriber.h src/Admin.cpp include/Admin.h src/Commit.cpp include/Commit.h
+        src/Contest.cpp include/Contest.h src/main_test.cpp)
 
 target_link_libraries(prj gtest gtest_main)

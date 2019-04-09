@@ -14,7 +14,7 @@ using std::string;
 using std::list;
 using std::map;
 
-class Admin: public Person, Handler {
+class Admin: public Person {
 private:
     map<string, Contest> contests;
 public:

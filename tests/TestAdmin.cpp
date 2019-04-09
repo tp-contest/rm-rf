@@ -12,41 +12,34 @@ TEST(AdminTest, costructorTest) {
 }
 
 TEST(AdminTest, registration) {
-    Admin ad = Admin();
-    int a = ad.registration("sanya", "sanya23125", "1111");
+    Admin * ad = new Admin();
+    int a = ad->registration("sanya", "sanya23125", "1111");
     EXPECT_EQ(a, 101);
 }
 
 TEST(AdminTest, changePassword) {
-    Admin ad = Admin();
-    int a = ad.changePassword("123", "211");
+    Admin * ad = new Admin();
+    int a = ad->changePassword("123", "211");
     EXPECT_EQ(a, 101);
 }
 
 TEST(AdminTest, authorization) {
-    Admin ad = Admin();
-    ad.setSessionId("123");
-    int a = ad.authorization();
+    Admin * ad = new Admin();
+    ad->setSessionId("123");
+    int a = ad->authorization();
     EXPECT_EQ(a, 101);
 }
 
 TEST(AdminTest, createContest) {
-    Admin ad = Admin();
-    ad.setSessionId("123");
-    string a = ad.createContest("1","2",10);
+    Admin * ad = new Admin();
+    ad->setSessionId("123");
+    string a = ad->createContest("1","2",10);
     EXPECT_EQ(a, "1");
 }
 
 TEST(AdminTest, editContest) {
-    Admin ad = Admin();
-    ad.setSessionId("123");
-    int a = ad.editContest("1","1","2",10);
-    EXPECT_EQ(a, 101);
-}
-
-TEST(AdminTest, getStatUsersByContest) {
-    Admin ad = Admin();
-    ad.setSessionId("123");
-    int a = ad.getStatUsersByContest("1");
+    Admin * ad = new Admin();
+    ad->setSessionId("123");
+    int a = ad->editContest("1","1","2",10);
     EXPECT_EQ(a, 101);
 }
