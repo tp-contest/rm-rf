@@ -25,11 +25,11 @@ public:
     ~Person() {};
     Status registration(const string name, const string login, const string password);
     Status authorization();
-    Status logout() { return Ok; };
-    Status rename(string name);
+    Status logout();
+    Status rename(string renameField);
     Status changePassword(string oldPass, string newPass) { return Ok; };
     Status setSessionId(string sessionId) {
-        this->sessionId;
+        this->sessionId = sessionId;
         return ERROR;
     };
 };

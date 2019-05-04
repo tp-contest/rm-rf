@@ -23,6 +23,11 @@ public:
     string createContest(string title, string task, time_t deadline);
     Status editContest(string contestId, string title, string task, time_t deadline);
     Status deleteContest(string contestId);
+    Status getStatUsersByContest(string contestID);
+    Status getStatContest(string contestID);
+    Status showContestByUser(string userID);
+    Status showCommits(string contestID);
+    Status openUserCodeForLastCommit(string contestID);
 };
 
 #endif //RM_RF_ADMIN_H

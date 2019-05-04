@@ -5,6 +5,9 @@
 #include "../include/Person.h"
 
 Status Person::registration(const string name, const string login, const string password) {
+    if (password.empty() || login.empty()) {
+        return ERROR;
+    }
     this->password = password; // utils.createPassword()
     this->login = login; // utils.createLogin()
     this->name = name; // utils.createName()
@@ -17,6 +20,18 @@ Status Person::authorization()  {
     return ERROR;
 }
 
-Status Person::rename(string name)  {
-    return ERROR;
+Status Person::rename(string renameField)  {
+    if (renameField.empty()) {
+        return ERROR;
+    }
+    this->name = renameField;
+    return Ok;
+}
+
+Status Person::logout() {
+    if (this->sessionId.empty()) {
+        return ERROR;
+    }
+    this->sessionId.clear();
+    return Ok;
 }

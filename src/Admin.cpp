@@ -31,3 +31,23 @@ Status Admin::deleteContest(string contestId) {
     contests.erase(contestId);
     return Ok;
 }
+
+Status Admin::getStatUsersByContest(string contestID) {
+    return Ok;
+}
+
+Status Admin::getStatContest(string contestID) {
+    return Ok;
+}
+
+Status Admin::showContestByUser(string userID) {
+    return Ok;
+}
+
+Status Admin::showCommits(string contestID) {
+    return Ok;
+}
+
+Status Admin::openUserCodeForLastCommit(string contestID) {
+    return Ok;
+}
