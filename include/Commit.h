@@ -5,26 +5,35 @@
 #ifndef _LIB_COMMIT_H
 #define _LIB_COMMIT_H
 
+#include <fstream>
 #include <iostream>
-#include <string>
-#include "../include/Status.h"
+#include "Status.h"
+#include <ctime>
+//#include <cpprest/http_client.h>
 
-//TODO:: create enum status list
-typedef int status;
-
-using std::string;
 
 class Commit {
 private:
     string ID;
     time_t sendTime;
     string result;
+    std::ifstream decision;
+
 public:
-    Commit() {};
-    Commit(time_t sendTime) : sendTime(sendTime) {};
-    ~Commit() {};
+    Commit();
+
+    Commit(const Commit &c) {};
+
+    ~Commit() = default;
+
     string getCommitId();
+
+    Status loadFile(const char *file_name);
+
     Status setId(string id);
+
+    //private:
+    Status verify();
 };
 
 #endif //_LIB_COMMIT_H
