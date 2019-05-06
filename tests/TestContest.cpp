@@ -1,0 +1,20 @@
+//
+// Created by horosheninad
+//
+
+#include <iostream>
+#include <gtest/gtest.h>
+#include "../include/Contest.h"
+#include "assert.h"
+
+TEST(ContestTest, contestTest) {
+    //ASSERT_NE(NULL, Contest());
+}
+
+TEST(AdminTest, registration) {
+    Contest * contest = new Contest("My contest");
+    if (contest->editTitle("no no no!")) {
+        string title = contest->getTitle();
+        EXPECT_EQ(title, "no no no!");
+    }
+}
