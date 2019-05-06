@@ -24,9 +24,11 @@ public:
 
 
     bool handle(int commandId, User *& user) override {
+        bool result = true;
         if (user) {
             if (next) {
-                next->handle(commandId, user);
+                result = next->handle(commandId, user);
+                return result;
             } else {
                 std::cout << "has no handler for login user!" << std::endl;
                 return false;
@@ -34,19 +36,18 @@ public:
         }
 
         if (commandId == SIGNUP) {
-            signUp(user);
+            result = signUp(user);
         } else if (commandId == LOGIN) {
-            login(user);
+            result = login(user);
         } else if (commandId == HELP) {
             printHelp();
         } else {
             return false;
         }
-        return true;
+        return result;
     };
 
     bool signUp(User *& user) {
-        puts("hello signup");
         std::string username;
         std::string password1;
         std::string password2;
@@ -73,7 +74,6 @@ public:
     }
 
     bool login(User *& user) {
-        puts("hello login");
         std::string username;
         std::string password;
 

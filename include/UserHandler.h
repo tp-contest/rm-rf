@@ -7,6 +7,7 @@
 
 #include "Handler.h"
 #include "User.h"
+#include "Document.h"
 #include <iostream>
 
 class UserHandler: public Handler {
@@ -23,9 +24,9 @@ public:
     };
 
     bool handle(int commandId, User *& user) override {
-
+        bool result = true;
         if (commandId == LOGOUT) {
-            logout(user);
+            result = logout(user);
         } else if (commandId == HELP) {
             printHelp();
         } else {
@@ -39,14 +40,25 @@ public:
             }
             return false;
         }
-        return true;
+        //std::cout << result << std::endl;
+        return result;
     };
 
     bool logout(User *& user) {
-        puts("hello logout");
         delete(user);
         user = nullptr;
         return true;
+    }
+
+    bool loadFile() {
+        /*std::cout << "Enter path to file" << std::endl;
+        Document * document = new Document();
+        document.*/
+
+    }
+
+    bool pushFiles() {
+
     }
 
 private:

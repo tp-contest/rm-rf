@@ -8,7 +8,7 @@
 #include <string>
 #include "User.h"
 
-enum commands { HELP, SIGNUP, LOGIN, LOGOUT, PUSHTOSERVER };
+enum commands { HELP, SIGNUP, LOGIN, LOGOUT, LOADFILE, PUSHTOSERVER };
 
 class Handler {
 private:
@@ -32,10 +32,10 @@ public:
             return SIGNUP;
         } else if (request == "help") {
             return HELP;
+        } else if (request == "loadfile") {
+            return LOADFILE;
         }
     }
-
 };
-
 
 #endif //PRJ_HANDLER_H

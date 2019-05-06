@@ -37,6 +37,9 @@ public:
     void setStartTime(time_t start);
     void setEndTime(time_t end);
 
+    bool loadFormPath(std::string path) {
+        return true;
+    };
     int getId() const;
     std::string getInfo() const;
     time_t getStartTime() const;
