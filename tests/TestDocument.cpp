@@ -8,20 +8,6 @@
 #include <stdexcept>
 #include <ctime>
 
-TEST(DocumentSuit, setGetStartTime) {
-    Document doc;
-    auto now = std::time(0);
-    doc.setStartTime(now);
-    ASSERT_EQ(doc.getStartTime(), now);
-}
-
-TEST(DocumentSuit, setGetEndTime) {
-    Document doc;
-    auto now = std::time(0);
-    doc.setEndTime(now);
-    ASSERT_EQ (doc.getEndTime(), now);
-}
-
 TEST(DocumentSuit, setIntId) {
     Document doc;
     doc.setId(0);
@@ -37,9 +23,9 @@ TEST(DocumentSuit, getId) {
     ASSERT_NE (Document().getId(), 0);
 }
 
-TEST(DocumentSuit, saveEmptyDocument) {
+/*TEST(DocumentSuit, saveEmptyDocument) {
     ASSERT_THROW(Document().saveDocument(), std::exception);
-}
+}*/
 
 TEST(DocumentSuit, deleteEmptyDocument) {
     ASSERT_NO_THROW(Document().deleteDocument());

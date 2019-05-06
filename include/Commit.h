@@ -8,22 +8,20 @@
 #include <fstream>
 #include <iostream>
 #include "Status.h"
+#include <vector>
 #include <ctime>
 #include <cpprest/http_client.h>
 #include <cpprest/filestream.h>
-#include <boost/filesystem.hpp>
-
-
-#define MIN_SIZE 1
-#define MAX_SIZE 100000
+//#include <boost/filesystem.hpp>
+#include <experimental/filesystem>
+#include "Document.h"
 
 class Commit {
 private:
     string ID;
     time_t sendTime;
     string result;
-    //std::ifstream decision;
-    std::string file_name_;
+    std::vector<Document*> decision;
 
 public:
     Commit();
@@ -34,12 +32,9 @@ public:
 
     string getCommitId();
 
-    Status loadFile(const char *file_name);
+    Status Add(const std::vector<const char *> &paths);
 
-    Status setId(string id);
-
-private:
-    Status verify();
+    Status setId(const string &id);
 };
 
 #endif //_LIB_COMMIT_H

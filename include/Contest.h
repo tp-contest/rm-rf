@@ -17,7 +17,7 @@ private:
     string ID;
     string title_;
     time_t deadline_;
-    string task;
+    string task_;
     int timeLimit;
     int memoryLimit;
     map<string, Commit> commits;

@@ -8,18 +8,22 @@
 #include <iostream>
 #include "time.h"
 #include "DocumentState.h"
+#include "Status.h"
+#include <experimental/filesystem>
+#include <fstream>
+
+#define MIN_SIZE 1
+#define MAX_SIZE 1000000
 
 class Document {
 private:
     DocumentState * state;
     int ID;
-    time_t startTime;
-    time_t endTime;
-    FILE * file; // to vector
+    std::ifstream* file;
 
 public:
     Document();
-    ~Document();
+    ~Document() = default;
     virtual void saveDocument() {
         state->saveDocument();
     };
@@ -30,19 +34,16 @@ public:
     virtual void editDocument() {};
     virtual void deleteDocument() {};
 
-    int calculateId();
-
     void setId(int id);
-    void setStartTime(time_t start);
-    void setEndTime(time_t end);
-
     int getId() const;
-    time_t getStartTime() const;
-    time_t getEndTime() const;
 
     DocumentState * getState() {
         return state;
     }
+
+    Status loadFile(const char *file_name);
+    Status verify(const std::experimental::filesystem::path &file) const;
+
 };
 
 

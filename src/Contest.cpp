@@ -29,7 +29,7 @@ Status Contest::editTask(const string &task) {
     if (task == "") {
       return ERROR;
     }
-    this->task = task;
+    task_ = task;
     return Ok;;
 }
 
