@@ -14,10 +14,13 @@ private:
 public:
     Status applyForContest(Contest &newContest);
 
+    Contest *showContestByUser(const string &userID);
+
+    Contest *showContest(const string &contestID);
+
+    string showResult(const string &contestID, const string &userID);
     Status sendCommit(string &ContestID, Commit &commit);
-
     void addContest(Contest &contest);
-
     void deleteContest(const string &contestID);
 };
 

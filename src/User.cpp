@@ -27,3 +27,15 @@ Status User::applyForContest(Contest &newContest) {
 void User::deleteContest(const string &contestID) {
     contests.erase(contestID);
 }
+
+Contest *User::showContestByUser(const string &userID) {
+    return nullptr;
+}
+
+Contest *User::showContest(const string &contestID) {
+    return nullptr;
+}
+
+string User::showResult(const string &contestID, const string &userID) {
+    return nullptr;
+}
