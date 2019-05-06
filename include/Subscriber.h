@@ -26,7 +26,7 @@ public:
 
     void handleServerAnswer(const std::string & answer) override {
         if (handler != nullptr && answer.c_str() != nullptr) {
-            handler->getInfo();
+            //handler->getInfo();
             std::cout << answer << std::endl;
         }
     };

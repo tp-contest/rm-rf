@@ -336,6 +336,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/include/AdminHandler.h">
+			<Option target="prj"/>
+		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/include/CommandHandler.h">
 			<Option target="prj"/>
 		</Unit>
@@ -357,6 +360,9 @@
 		<Unit filename="/home/d/CLionProjects/c_course/prj/include/JsonParser.h">
 			<Option target="prj"/>
 		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/include/NoUserHandler.h">
+			<Option target="prj"/>
+		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/include/Parser.h">
 			<Option target="prj"/>
 		</Unit>
@@ -369,7 +375,13 @@
 		<Unit filename="/home/d/CLionProjects/c_course/prj/include/Subscriber.h">
 			<Option target="prj"/>
 		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/include/User.h">
+			<Option target="prj"/>
+		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/include/UserFile.h">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/include/UserHandler.h">
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/lib/googletest/googlemock/src/gmock-all.cc">
@@ -383,6 +395,9 @@
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/lib/googletest/googletest/src/gtest_main.cc">
 			<Option target="gtest_main"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/src/AdminHandler.cpp">
+			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/CommandHandler.cpp">
 			<Option target="prj"/>
@@ -403,6 +418,9 @@
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/Subscriber.cpp">
+			<Option target="prj"/>
+		</Unit>
+		<Unit filename="/home/d/CLionProjects/c_course/prj/src/UserHandler.cpp">
 			<Option target="prj"/>
 		</Unit>
 		<Unit filename="/home/d/CLionProjects/c_course/prj/src/main.cpp">

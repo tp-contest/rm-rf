@@ -13,6 +13,7 @@ class Document {
 private:
     DocumentState * state;
     int ID;
+    std::string info;
     time_t startTime;
     time_t endTime;
     FILE * file; // to vector
@@ -37,6 +38,7 @@ public:
     void setEndTime(time_t end);
 
     int getId() const;
+    std::string getInfo() const;
     time_t getStartTime() const;
     time_t getEndTime() const;
 

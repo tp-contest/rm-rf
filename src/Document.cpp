@@ -42,3 +42,7 @@ time_t Document::getStartTime() const {
 time_t Document::getEndTime() const {
     return endTime;
 }
+
+std::string Document::getInfo() const {
+    return info;
+}
