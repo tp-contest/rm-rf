@@ -6,7 +6,7 @@
 #include "../include/Handler.h"
 #include "../include/Status.h"
 
-Status Admin::editContest(string contestId, string title, string task, time_t deadline) {
+Status Admin::editContest(const string &contestId, const string &title, const string &task, time_t deadline) {
     Contest contest = contests.find(contestId)->second;
     if (!contest.editTask(task)) {
         return ERROR;
@@ -21,33 +21,38 @@ Status Admin::editContest(string contestId, string title, string task, time_t de
     return Ok;
 };
 
-string Admin::createContest(string title, string task, time_t deadline) {
+string Admin::createContest(const string &title, const string &task, time_t deadline) {
     Contest contest(title, task, deadline);
     contests.insert(std::pair<string, Contest>(contest.getContestId(), contest));
     return contest.getContestId();
 }
 
-Status Admin::deleteContest(string contestId) {
-    contests.erase(contestId);
+Status Admin::deleteContest(const string &contestID) {
+    contests.erase(contestID);
     return Ok;
 }
 
-Status Admin::getStatUsersByContest(string contestID) {
-    return Ok;
+StatContest *Admin::getStatUsersByContest(const string &contestID) {
+    StatContest *stat = subscriber->GetStatUserByContest(contestID);
+    return stat;
 }
 
-Status Admin::getStatContest(string contestID) {
-    return Ok;
+StatContest *Admin::getStatContest(const string &contestID) {
+    StatContest *stat = subscriber->GetStatContest(contestID);
+    return stat;
 }
 
-Status Admin::showContestByUser(string userID) {
-    return Ok;
+StatContest *Admin::showContestByUser(const string &userID) {
+    StatContest *stat = subscriber->ShowContestByUser(userID);
+    return stat;
 }
 
-Status Admin::showCommits(string contestID) {
-    return Ok;
+StatCommit *Admin::showCommits(const string &contestID) {
+    StatCommit *commit = subscriber->ShowCommits(contestID);
+    return commit;
 }
 
-Status Admin::openUserCodeForLastCommit(string contestID) {
-    return Ok;
+string Admin::openUserCodeForLastCommit(const string &contestID) const {
+    string code = subscriber->OpenUserCodeForLastCommit(contestID);
+    return code;
 }

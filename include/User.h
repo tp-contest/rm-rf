@@ -8,13 +8,17 @@
 
 using std::map;
 
-class User: public Person{
+class User : public Person {
 private:
-    map<string, Contest> contests_;
+    map<string, Contest> contests;
 public:
-    Status applyForContest(const Contest &newContest) { return Ok; };
-    Status sendCommit(string ContestID) { return Ok; };
-};
+    Status applyForContest(Contest &newContest);
 
+    Status sendCommit(string &ContestID, Commit &commit);
+
+    void addContest(Contest &contest);
+
+    void deleteContest(const string &contestID);
+};
 
 #endif //MYPROJECT_USER_H

@@ -15,7 +15,7 @@ using std::string;
 using std::list;
 
 class Person {
-private:
+protected:
     string ID;
     string login;
     string password;

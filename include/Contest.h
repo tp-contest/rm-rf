@@ -35,7 +35,8 @@ public:
     bool editTask(string task);
 
     Status changeTask(string Task) { return Ok; };
-    Status changeLimits(int timeLimit, int memoryLimit) { return Ok; };
+
+    Status changeLimits(int tLimit, int mLimit) { return Ok; };
     Status changeDeadline(time_t deadline) { return Ok; };
     Status addCommit(Commit& commit);
     string getContestId() {
@@ -43,6 +44,10 @@ public:
     }
     string getTitle() {
         return this->title;
+    }
+
+    bool isEmptyCommits() {
+        return commits.empty();
     }
 };
 
