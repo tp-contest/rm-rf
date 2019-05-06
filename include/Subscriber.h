@@ -9,6 +9,7 @@
 #include "Handler.h"
 #include "Parser.h"
 #include "iostream"
+#include "Status.h"
 
 class Subscriber : public ISubscriber {
 private:
@@ -37,6 +38,22 @@ public:
 
     Parser * getParser() {
         return parser;
+    }
+
+    Status SendToServerAuth(const string &sessionId) {
+        return Ok;
+    }
+    Status SendToServerReg(const string &newName, const string &newLogin, const string &newPassword) {
+        return Ok;
+    }
+    Status SendToServerRename(const string &renameField) {
+        return Ok;
+    }
+    Status SendToServerLogout() {
+        return Ok;
+    }
+    Status SendToServerChangePass(const string &newPass) {
+        return Ok;
     }
 };
 
