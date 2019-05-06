@@ -12,7 +12,7 @@ TEST(ContestTest, contestTest) {
 }
 
 TEST(AdminTest, registration) {
-    Contest * contest = new Contest("My contest", "do this please", 100);
+    Contest * contest = new Contest("My contest");
     if (contest->editTitle("no no no!")) {
         string title = contest->getTitle();
         EXPECT_EQ(title, "no no no!");

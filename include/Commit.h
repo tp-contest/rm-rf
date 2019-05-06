@@ -9,20 +9,26 @@
 #include <iostream>
 #include "Status.h"
 #include <ctime>
-//#include <cpprest/http_client.h>
+#include <cpprest/http_client.h>
+#include <cpprest/filestream.h>
+#include <boost/filesystem.hpp>
 
+
+#define MIN_SIZE 1
+#define MAX_SIZE 100000
 
 class Commit {
 private:
     string ID;
     time_t sendTime;
     string result;
-    std::ifstream decision;
+    //std::ifstream decision;
+    std::string file_name_;
 
 public:
     Commit();
 
-    Commit(const Commit &c) {};
+    Commit(const Commit &c) = default;
 
     ~Commit() = default;
 
@@ -32,7 +38,7 @@ public:
 
     Status setId(string id);
 
-    //private:
+private:
     Status verify();
 };
 

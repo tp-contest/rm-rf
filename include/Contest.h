@@ -15,35 +15,34 @@ using std::map;
 class Contest {
 private:
     string ID;
-    string title;
-    time_t deadline;
+    string title_;
+    time_t deadline_;
     string task;
     int timeLimit;
     int memoryLimit;
     map<string, Commit> commits;
 public:
-    Contest(string title);
-    Contest(string title, string task, time_t deadline) : title(title), task(task), deadline(deadline) {
-        this->ID = '1'; // tools.GenerateUUID();
-    };
-    ~Contest() {};
+    Contest(const string &name);
 
-    bool editTitle(string title);
+    ~Contest() = default;
 
-    bool editDeadline(time_t deadline);
+    Status editTitle(const string &new_title);
 
-    bool editTask(string task);
+    Status editDeadline(time_t deadline);
 
-    Status changeTask(string Task) { return Ok; };
-    Status changeLimits(int timeLimit, int memoryLimit) { return Ok; };
-    Status changeDeadline(time_t deadline) { return Ok; };
-    Status addCommit(Commit& commit);
-    string getContestId() {
-        return this->ID;
-    }
-    string getTitle() {
-        return this->title;
-    }
+    Status editTask(const string &task);
+
+    Status changeTask(string Task);
+
+    Status changeLimits(int timeLimit, int memoryLimit);
+
+    Status changeDeadline(time_t deadline);
+
+    Status addCommit(Commit &commit);
+
+    string getContestId();
+
+    string getTitle();
 };
 
 #endif //_LIB_CONTEST_H

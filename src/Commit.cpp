@@ -1,6 +1,6 @@
 #include "../include/Commit.h"
-#include "../include/Status.h"
 
+using namespace boost::filesystem;
 
 Commit::Commit() {
     string from_server = "from server";
@@ -19,17 +19,25 @@ Status Commit::setId(string id) {
 }
 
 Status Commit::loadFile(const char *file_name) {
-    decision.open(file_name, std::ios::in);
-    return verify();
+    file_name_ = file_name;
+    path file{file_name_};
+    boost::system::error_code ec;
+    boost::uintmax_t filesize = file_size(file, ec);
+    if (ec)
+        return ERROR;
+
+    /*decision.open(file_name, std::ios::in);
+    return verify();*/
 }
 
 Status Commit::verify() {
-    if (!decision.is_open())
+
+    /*if (!decision.is_open())
         return ERROR;
     decision.seekg(0, std::ios::end);
     int size = decision.tellg();
     decision.seekg(0, std::ios::beg);
-    if (size < 1 || size > (100000)) {
+    if (size < MIN_SIZE || size > MAX_SIZE) {
         return ERROR;
-    }
+    }*/
 }

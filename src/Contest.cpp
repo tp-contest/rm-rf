@@ -4,35 +4,55 @@
 
 #include "../include/Contest.h"
 
-Contest::Contest(string title) {
-    this->ID = '1'; // tools.GenerateUUID();
+Contest::Contest(const string &name) {
+    title_ = name;
+    ID = "from server"; // tools.GenerateUUID();
 }
 
-bool Contest::editTitle(string title)  {
-    if (title == "") {
-      return false;
+Status Contest::editTitle(const string &new_title)  {
+    if (title_.empty()) {
+        return ERROR;
     }
-    this->title = title;
-    return true;
+    title_ = new_title;
+    return Ok;
 }
 
-bool Contest::editDeadline(time_t deadline)  {
+Status Contest::editDeadline(time_t deadline)  {
     if (deadline < 0) {
-      return false;
+        return ERROR;
     }
-    this->deadline = deadline;
-    return true;
+    deadline_ = deadline;
+    return Ok;
 }
 
-bool Contest::editTask(string task) {
+Status Contest::editTask(const string &task) {
     if (task == "") {
-      return false;
+      return ERROR;
     }
     this->task = task;
-    return true;
+    return Ok;;
 }
 
 Status Contest::addCommit(Commit &commit) {
     commits.insert(std::pair<string, Commit>(commit.getCommitId(), commit));
     return Ok;
+}
+
+Status Contest::changeTask(string Task) {
+    return Ok;
+}
+
+Status Contest::changeLimits(int timeLimit, int memoryLimit) {
+    return Ok;
+}
+
+Status Contest::changeDeadline(time_t deadline) {
+    return Ok;
+}
+
+string Contest::getContestId() {
+    return this->ID;
+}
+string Contest::getTitle() {
+    return title_;
 }
