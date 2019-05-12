@@ -12,7 +12,7 @@
 #include "../include/JsonParser.h"
 
 
-TEST(SubscriberSuite, costructorTest) {
+/*TEST(SubscriberSuite, costructorTest) {
     Subscriber * subscriber = new Subscriber();
     ASSERT_NE(nullptr, subscriber);
     Handler * handler = subscriber->getHandler();
@@ -33,4 +33,4 @@ TEST(SubscriberSuite, handleServerAnswerTest2) {
     Subscriber sbsc = Subscriber();
     const std::string str = "HELLO";
     sbsc.handleServerAnswer(str);
-}
+}*/
