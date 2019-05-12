@@ -8,6 +8,11 @@
 using std::string;
 using std::list;
 
-enum Status { Ok, ERROR, NOT_CONNECTED };
+enum status {
+    OK,
+    ERROR,
+    NOT_CONNECTED
+};
+
 
 #endif //ARCHITECTURE_STATUS_H
