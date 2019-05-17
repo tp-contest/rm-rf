@@ -10,26 +10,17 @@
 
 class AdminHandler : public Handler {
 public:
-    AdminHandler() : next(nullptr) {};
+    AdminHandler() {};
     ~AdminHandler() {};
 
     void printHelp() {
         std::cout << "commands:" << std::endl;
     };
 
-    void setNext(Handler *& handler) override {
-        next = handler;
-    };
-
     bool handle(int commandId, User *& user) override {
 
-        if (user->isAdmin()) {
-            if (next) {
-                next->handle(commandId, user);
-            } else {
-                std::cout << "has no handler for login user!" << std::endl;
-                return false;
-            }
+        if (!user || (user && !user->isAdmin())) {
+            return false;
         }
 
         if (commandId == LOGOUT) {
@@ -48,9 +39,6 @@ public:
         user = nullptr;
         return true;
     }
-
-private:
-    Handler * next;
 };
 
 

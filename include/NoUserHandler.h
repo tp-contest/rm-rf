@@ -11,28 +11,17 @@
 
 class NoUserHandler: public Handler {
 public:
-    NoUserHandler(): next(nullptr) {};
+    NoUserHandler() {};
     ~NoUserHandler() {};
 
     void printHelp() override {
         std::cout << "commands:" << std::endl;
     };
 
-    void setNext(Handler *& handler) override {
-        next = handler;
-    };
-
-
     bool handle(int commandId, User *& user) override {
         bool result = true;
         if (user) {
-            if (next) {
-                result = next->handle(commandId, user);
-                return result;
-            } else {
-                std::cout << "has no handler for login user!" << std::endl;
-                return false;
-            }
+            return false;
         }
 
         if (commandId == SIGNUP) {
@@ -89,9 +78,6 @@ public:
 
         return true;
     }
-
-private:
-    Handler * next;
 };
 
 #endif //PRJ_NOUSERHANDLER_H

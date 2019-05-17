@@ -12,35 +12,26 @@
 
 class UserHandler: public Handler {
 public:
-    UserHandler(): next(nullptr) {};
+    UserHandler() {};
     ~UserHandler() {};
 
     void printHelp() {
         std::cout << "commands:" << std::endl;
     };
 
-    void setNext(Handler *& handler) override {
-        next = handler;
-    };
-
     bool handle(int commandId, User *& user) override {
         bool result = true;
+        if (!user) {
+            return false;
+        }
+
         if (commandId == LOGOUT) {
             result = logout(user);
         } else if (commandId == HELP) {
             printHelp();
         } else {
-            if (user->isAdmin()) {
-                if (next) {
-                    next->handle(commandId, user);
-                } else {
-                    std::cout << "has no handler for admin!" << std::endl;
-                    return false;
-                }
-            }
             return false;
         }
-        //std::cout << result << std::endl;
         return result;
     };
 

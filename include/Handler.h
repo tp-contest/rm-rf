@@ -21,7 +21,7 @@ public:
 
     virtual void printHelp() = 0;
     virtual bool handle(int commandId, User *& user) = 0;
-    virtual void setNext(Handler *& handler) = 0;
+    //virtual void setNext(Handler *& handler) = 0;
 
     int requestToId(std::string request) {
         if (request == "login") {

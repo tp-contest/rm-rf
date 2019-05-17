@@ -11,7 +11,7 @@
 #include "../include/NoUserHandler.h"
 #include "../include/UserHandler.h"
 #include "../include/AdminHandler.h"
-#include <iostream>
+#include <vector>
 
 int main() {
     /*std::cout << "hello, world" << std::endl;
@@ -36,18 +36,29 @@ int main() {
     Handler * adminHandler = new AdminHandler();
 
     std::string command = "";
-    noUserHandler->setNext(userHandler);
-    userHandler->setNext(adminHandler);
+
+    std::vector<Handler *> handlers;
+    handlers.push_back(noUserHandler);
+    handlers.push_back(userHandler);
+    handlers.push_back(adminHandler);
 
 
     while (std::cin >> command) {
-        bool result = noUserHandler->handle(noUserHandler->requestToId(command), user);
+        int commandId = noUserHandler->requestToId(command);
+        bool result = false;
+        for (int i = 0; i < handlers.size() && !result; i++) {
+            result = handlers[i]->handle(commandId, user);
+        }
         if (result) {
             std::cout << "OK" << std::endl;
         } else {
             std::cout << "FAIL" << std::endl;
         }
     }
+
+    delete noUserHandler;
+    delete userHandler;
+    delete adminHandler;
     /*noUserHandler->setNext(userHandler);
 
     noUserHandler->signUp();
