@@ -13,6 +13,7 @@ class Document {
 private:
     DocumentState * state;
     int ID;
+    std::string info;
     time_t startTime;
     time_t endTime;
     FILE * file; // to vector
@@ -36,7 +37,11 @@ public:
     void setStartTime(time_t start);
     void setEndTime(time_t end);
 
+    bool loadFormPath(std::string path) {
+        return true;
+    };
     int getId() const;
+    std::string getInfo() const;
     time_t getStartTime() const;
     time_t getEndTime() const;
 
