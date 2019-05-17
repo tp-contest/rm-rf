@@ -9,29 +9,29 @@
 #include <string>
 #include <list>
 #include "Status.h"
+#include "Subscriber.h"
 
 using std::string;
 using std::list;
 
 class Person {
-private:
+protected:
     string ID;
     string login;
     string password;
     string name;
     string sessionId;
+    Subscriber * subscriber;
 public:
-    Person() {};
+//    Person() {};
     ~Person() {};
-    Status registration(const string name, const string login, const string password);
+    Status registration(const string &newName, const string &newLogin, const string &newPassword);
     Status authorization();
-    Status logout() { return Ok; };
-    Status rename(string name);
-    Status changePassword(string oldPass, string newPass) { return Ok; };
-    Status setSessionId(string sessionId) {
-        this->sessionId;
-        return ERROR;
-    };
+    Status logout();
+    Status rename(const string &renameField);
+    Status changePassword(const string &oldPass, const string &newPass);
+    Status setSessionId(const string &sessId);
+    string getSessionId();
 };
 
 #endif //_LIB_PERSON_H

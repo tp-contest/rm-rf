@@ -8,13 +8,27 @@
 #include "ISubscriber.h"
 #include "Handler.h"
 #include "Parser.h"
+#include "Status.h"
+#include "Commit.h"
 #include "iostream"
+
+typedef struct {
+} StatContest;
+
+typedef struct {
+} StatUsers;
+
+typedef struct {
+} StatCommit;
 
 class Subscriber : public ISubscriber {
 private:
     Handler * handler;
     Parser * parser;
     bool checkAnswer(const std::string & answer);
+
+    StatContest *stat;
+    StatCommit *commits;
 
 public:
     Subscriber() : handler(nullptr), parser(nullptr){};
@@ -37,6 +51,47 @@ public:
 
     Parser * getParser() {
         return parser;
+    }
+
+    Status SendToServerAuth(const string &sessionId) {
+        return Ok;
+    }
+    Status SendToServerReg(const string &newName, const string &newLogin, const string &newPassword) {
+        return Ok;
+    }
+    Status SendToServerRename(const string &renameField) {
+        return Ok;
+    }
+    Status SendToServerLogout() {
+        return Ok;
+    }
+    Status SendToServerChangePass(const string &newPass) {
+        return Ok;
+    }
+
+    StatContest *GetStatUserByContest(const string &contestID) {
+        return stat;
+    }
+
+    StatContest *GetStatContest(const string &contestID) {
+        return stat;
+    }
+
+    StatContest *ShowContestByUser(const string &userID) {
+        return stat;
+    }
+
+    StatCommit *ShowCommits(const string &contestID) {
+        return commits;
+    }
+
+    string OpenUserCodeForLastCommit(const string &contestID) {
+        // get user code
+        return "";
+    }
+
+    Status SendCommit(const Commit &commit) {
+        return Ok;
     }
 };
 
