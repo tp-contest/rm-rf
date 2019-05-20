@@ -26,9 +26,9 @@ public:
     string getCommitId();
     Status setId(string id);
 
-    Status loadFile(const char *file_name) { return Ok; };
+    Status loadFile(const char *file_name) { return OK; };
 
-    Status verify() { return Ok; };
+    Status verify() { return OK; };
 };
 
 #endif //_LIB_COMMIT_H

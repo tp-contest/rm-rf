@@ -6,14 +6,15 @@
 #define PRJ_DOCUMENTSTATE_H
 
 #include <iostream>
+#include "Status.h"
 
 class DocumentState {
 public:
     DocumentState() {};
     ~DocumentState() {};
-    virtual bool saveDocument() = 0;
-    virtual bool editDocument() = 0;
-    virtual bool deleteDocument() = 0;
+    virtual Status saveDocument() = 0;
+    virtual Status editDocument() = 0;
+    virtual Status deleteDocument() = 0;
 };
 
 #endif //PRJ_DOCUMENTSTATE_H

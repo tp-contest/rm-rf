@@ -4,7 +4,7 @@
 
 #include "../include/Contest.h"
 
-Contest::Contest(string title) {
+/*Contest::Contest(string title) {
     this->ID = '1'; // tools.GenerateUUID();
 }
 
@@ -35,4 +35,4 @@ bool Contest::editTask(string task) {
 Status Contest::addCommit(Commit &commit) {
     commits.insert(std::pair<string, Commit>(commit.getCommitId(), commit));
     return Ok;
-}
+}*/

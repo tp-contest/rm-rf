@@ -12,5 +12,5 @@ string Commit::getCommitId() {
 
 Status Commit::setId(string id) {
     this->ID = id;
-    return Ok;
+    return OK;
 }

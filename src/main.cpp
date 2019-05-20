@@ -36,7 +36,7 @@ int main() {
         std::cout << "not create";
     } */
 
-    User * user = nullptr;
+    /*User * user = nullptr;
     Handler * noUserHandler = new NoUserHandler();
     Handler * userHandler = new UserHandler();
     Handler * adminHandler = new AdminHandler();
@@ -65,7 +65,19 @@ int main() {
     delete user;
     delete noUserHandler;
     delete userHandler;
-    delete adminHandler;
+    delete adminHandler;*/
+
+    Document * document = new Document;
+
+    int i = document->loadFromPath("../1.png");
+    char * str = document->getFile();
+    std::cout << "i = "<< i << " str =" << str;
+
+    document->deleteFile();
+    str = document->getFile();
+    std::cout << "i = "<< i << " str =" << str;
+    delete document;
+
     /*noUserHandler->setNext(userHandler);
 
     noUserHandler->signUp();

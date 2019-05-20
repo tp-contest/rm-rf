@@ -15,15 +15,15 @@ using std::map;
 
 class Contest : public Document  {
 private:
-    string ID;
-    string title;
     time_t deadline;
-    string task;
+
     int timeLimit;
     int memoryLimit;
-    map<string, Commit> commits;
+
+    //map<string, Commit> commits;
+
 public:
-    Contest(string title);
+    /*Contest(string title);
     Contest(string title, string task, time_t deadline) : title(title), task(task), deadline(deadline) {
         this->ID = '1'; // tools.GenerateUUID();
     };
@@ -49,7 +49,7 @@ public:
 
     bool isEmptyCommits() {
         return commits.empty();
-    }
+    }*/
 };
 
 #endif //_LIB_CONTEST_H

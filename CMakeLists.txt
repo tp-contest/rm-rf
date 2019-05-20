@@ -27,7 +27,6 @@ add_executable(prj
         src/AdminHandler.cpp
         src/Commit.cpp
         src/Contest.cpp
-        src/Document.cpp
         src/DraftState.cpp
         src/JsonParser.cpp
         src/PublishedState.cpp
@@ -42,7 +41,7 @@ add_executable(prj
         tests/TestPublishedState.cpp
         tests/TestSubscriber.cpp
         tests/TestUserFile.cpp
-        src/User.cpp)
+        src/User.cpp include/DeletedState.h)
 add_test(prj src/Subscriber.cpp include/Subscriber.h src/Commit.cpp include/Commit.h
         src/Contest.cpp include/Contest.h src/main_test.cpp)
 

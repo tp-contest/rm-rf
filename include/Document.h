@@ -6,48 +6,103 @@
 #define PRJ_DOCUMENT_H
 
 #include <iostream>
-#include "time.h"
+#include <fstream>
 #include "DocumentState.h"
+#include "DraftState.h"
+#include "Status.h"
+#include "time.h"
+#include "DeletedState.h"
+#include <sstream>
+
+using std::string;
+using std::ifstream;
+using std::stringstream;
 
 class Document {
-private:
-    DocumentState * state;
+
+protected:
     int ID;
-    std::string info;
-    time_t startTime;
-    time_t endTime;
-    FILE * file; // to vector
+    string name;
+    DocumentState * state;
+    char * file;
+
+    void calculateId() {
+        int s = 1000; // TODO: fix s param
+        int len = name.length();
+        ID = name[len - 1];
+        int x0 = 7;
+        for (int i = len - 2; i >= 0; i--) {
+            ID = name[i] + ID * x0;
+        }
+        ID = ID % s;
+    };
 
 public:
-    Document();
-    ~Document();
-    virtual void saveDocument() {
+    Document() : ID(-1), name(""), state(nullptr), file(nullptr) {};
+    ~Document() {
+        delete file;
+    };
+
+    int getId() const {
+        return ID;
+    };
+
+
+    Status editFile() {
+        state->editDocument();
+    }
+
+    Status saveDocument() {
         state->saveDocument();
-    };
-    void setState(DocumentState & docstate) {
-        state = &docstate;
+        calculateId();
     }
 
-    virtual void editDocument() {};
-    virtual void deleteDocument() {};
+    Status deleteFile() {
+        state->deleteDocument();
 
-    int calculateId();
+        delete state;
+        state = new DeletedState();
 
-    void setId(int id);
-    void setStartTime(time_t start);
-    void setEndTime(time_t end);
-
-    bool loadFormPath(std::string path) {
-        return true;
-    };
-    int getId() const;
-    std::string getInfo() const;
-    time_t getStartTime() const;
-    time_t getEndTime() const;
-
-    DocumentState * getState() {
-        return state;
+        if (!file)
+            return ERROR;
+        ID = -1;
+        name = "";
+        state = nullptr;
+        delete file;
+        file = nullptr;
+        return OK;
     }
+
+    Status loadFromPath(std::string path) {
+        if (file) {
+            return ERROR;
+        }
+
+        name = path;
+        std::ifstream infile(path);
+        if (!infile) {
+            return ERROR;
+        }
+
+        infile.seekg(0, infile.end);
+        size_t length = infile.tellg();
+        infile.seekg(0, infile.beg);
+
+        file = new char[length];
+        if (!file) {
+            return ERROR;
+        }
+
+        infile.read(file, length);
+        state = new DraftState();
+
+        return OK;
+    };
+
+    char * getFile() {
+        return file;
+    }
+
 };
 
 

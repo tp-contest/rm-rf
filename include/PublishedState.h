@@ -8,7 +8,19 @@
 #include "Document.h"
 
 class PublishedState: public DocumentState {
+public:
+    PublishedState() {};
+    ~PublishedState() {};
 
+    Status saveDocument() override {
+
+    };
+    Status editDocument() override {
+
+    };
+    Status deleteDocument() override {
+
+    };
 };
 
 #endif //PRJ_PUBLISHEDSTATE_H

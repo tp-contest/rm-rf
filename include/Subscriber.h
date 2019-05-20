@@ -53,19 +53,19 @@ public:
     }
 
     Status SendToServerAuth(const string &sessionId) {
-        return Ok;
+        return OK;
     }
     Status SendToServerReg(const string &newName, const string &newLogin, const string &newPassword) {
-        return Ok;
+        return OK;
     }
     Status SendToServerRename(const string &renameField) {
-        return Ok;
+        return OK;
     }
     Status SendToServerLogout() {
-        return Ok;
+        return OK;
     }
     Status SendToServerChangePass(const string &newPass) {
-        return Ok;
+        return OK;
     }
 
     StatContest *GetStatUserByContest(const string &contestID) {
@@ -90,7 +90,7 @@ public:
     }
 
     Status SendCommit(const Commit &commit) {
-        return Ok;
+        return OK;
     }
 };
 

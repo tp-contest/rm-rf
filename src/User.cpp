@@ -9,19 +9,20 @@ void User::addContest(Contest &contest) {
 }
 
 Status User::sendCommit(string &ContestID, Commit &commit) {
-    if (Ok != subscriber->SendCommit(commit)) {
+    if (OK != subscriber->SendCommit(commit)) {
         return ERROR;
     }
-    return Ok;
+    return OK;
 }
 
 Status User::applyForContest(Contest &newContest) {
-    string contestId = newContest.getContestId();
+    //string contestId = newContest.getContestId();
+    string contestId = "";
     if (contestId.empty()) {
         return ERROR;
     }
     addContest(newContest);
-    return Ok;
+    return OK;
 }
 
 void User::deleteContest(const string &contestID) {
@@ -44,36 +45,36 @@ Status User::registration(const string &newName, const string &newLogin, const s
     if (newPassword.empty() || newLogin.empty()) {
         return ERROR;
     }
-    if (Ok != subscriber->SendToServerReg(newName, newLogin, newPassword)) {
+    if (OK != subscriber->SendToServerReg(newName, newLogin, newPassword)) {
         return ERROR;
     }
     this->password = newPassword;
     this->username = newName;
-    return Ok;
+    return OK;
 }
 
 Status User::authorization() {
-    if (Ok != subscriber->SendToServerAuth(this->sessionId)) {
+    /*if (Ok != subscriber->SendToServerAuth(this->sessionId)) {
         return ERROR;
-    }
-    return Ok;
+    }*/
+    return OK;
 }
 
 Status User::rename(const string &renameField) {
-    if (renameField.empty() || Ok != subscriber->SendToServerRename(renameField)) {
+    if (renameField.empty() || OK != subscriber->SendToServerRename(renameField)) {
         return ERROR;
     }
-    this->name = renameField;
-    return Ok;
+    this->username = renameField;
+    return OK;
 }
 
 Status User::logout() {
-    if (this->sessionId.empty() || Ok != subscriber->SendToServerLogout()) {
+    /*if (this->sessionId.empty() || Ok != subscriber->SendToServerLogout()) {
         return ERROR;
     }
     // TODO::redirect to start page
-    this->sessionId.clear();
-    return Ok;
+    this->sessionId.clear();*/
+    return OK;
 }
 
 Status User::changePassword(const string &oldPass, const string &newPass) {
@@ -84,22 +85,22 @@ Status User::changePassword(const string &oldPass, const string &newPass) {
         return ERROR;
     }
     this->password = newPass;
-    return Ok;
+    return OK;
 }
 
 Status User::setSessionId(const string & sessId) {
     if (sessId.empty())
         return ERROR;
-    this->sessionId = sessId;
-    return Ok;
+    //this->sessionId = sessId;
+    return OK;
 }
 
 string User::getSessionId() {
-    return this->sessionId;
+    //return this->sessionId;
 }
 
 Status User::editContest(const string &contestId, const string &title, const string &task, time_t deadline) {
-    Contest contest = documents.find(contestId)->second;
+    /*Contest contest = documents.find(contestId)->second;
     if (!contest.editTask(task)) {
         return ERROR;
     }
@@ -109,18 +110,18 @@ Status User::editContest(const string &contestId, const string &title, const str
     if (!contest.editDeadline(deadline)) {
         return ERROR;
     }
-    contests.at(contestId) = contest;
-    return Ok;
+    contests.at(contestId) = contest;*/
+    return OK;
 };
 
 string User::createContest(const string &title, const string &task, time_t deadline) {
-    Contest contest(title, task, deadline);
-    contests.insert(std::pair<string, Contest>(contest.getContestId(), contest));
-    return contest.getContestId();
+    /*Contest contest(title, task, deadline);
+    documents.insert(std::pair<string, Contest>(contest.getContestId(), contest));
+    return contest.getContestId();*/
 }
 
-Status User::deleteContest(const string &contestID) {
-    contests.erase(contestID);
+/*Status User::deleteContest(const string &contestID) {
+    documents.erase(contestID);
     return Ok;
 }
 
@@ -147,4 +148,4 @@ StatCommit* User::showCommits(const string &contestID) {
 string User::openUserCodeForLastCommit(const string &contestID) const {
     string code = subscriber->OpenUserCodeForLastCommit(contestID);
     return code;
-}
+}*/

@@ -17,14 +17,15 @@ public:
     User(std::string username, std::string password): username(username), password(password), admin(false) {
         std::cout << "got user" << std::endl;
     }
+
     ~User(){}
 
     bool isAdmin(){
         return admin;
     }
 
-    Status applyForContest(const Contest &newContest) { return Ok; };
-    Status sendCommit(string ContestID) { return Ok; };
+    Status applyForContest(const Contest &newContest) { return OK; };
+    Status sendCommit(string ContestID) { return OK; };
     Status applyForContest(Contest &newContest);
 
     Contest *showContestByUser(const string &userID);
@@ -57,9 +58,9 @@ private:
     std::string username;
     std::string password;
 
-    map<std::string, Document> documents;
     bool admin;
     Subscriber * subscriber;
+    map<std::string, Document> documents;
 };
 
 #endif //PRJ_USER_H

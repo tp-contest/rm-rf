@@ -8,7 +8,7 @@
 #include <stdexcept>
 #include <ctime>
 
-TEST(DocumentSuit, setGetStartTime) {
+/*TEST(DocumentSuit, setGetStartTime) {
     Document doc;
     auto now = std::time(0);
     doc.setStartTime(now);
@@ -47,4 +47,4 @@ TEST(DocumentSuit, deleteEmptyDocument) {
 
 TEST(DocumentSuit, editEmptyDocument) {
     ASSERT_NO_THROW (Document().editDocument());
-}
+}*/
