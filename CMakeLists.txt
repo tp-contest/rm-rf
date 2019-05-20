@@ -6,7 +6,6 @@ add_subdirectory(lib/googletest)
 include_directories(lib/googletest/googletest/include include src)
 
 add_executable(prj
-        include/Admin.h
         include/AdminHandler.h
         include/Commit.h
         include/Contest.h
@@ -18,7 +17,6 @@ add_executable(prj
         include/JsonParser.h
         include/NoUserHandler.h
         include/Parser.h
-        include/Person.h
         include/PublishedState.h
         include/Publisher.h
         include/Status.h
@@ -26,14 +24,12 @@ add_executable(prj
         include/User.h
         include/UserFile.h
         include/UserHandler.h
-        src/Admin.cpp
         src/AdminHandler.cpp
         src/Commit.cpp
         src/Contest.cpp
         src/Document.cpp
         src/DraftState.cpp
         src/JsonParser.cpp
-        src/Person.cpp
         src/PublishedState.cpp
         src/Publisher.cpp
         src/Subscriber.cpp
@@ -47,7 +43,7 @@ add_executable(prj
         tests/TestSubscriber.cpp
         tests/TestUserFile.cpp
         src/User.cpp)
-add_test(prj src/Subscriber.cpp include/Subscriber.h src/Admin.cpp include/Admin.h src/Commit.cpp include/Commit.h
+add_test(prj src/Subscriber.cpp include/Subscriber.h src/Commit.cpp include/Commit.h
         src/Contest.cpp include/Contest.h src/main_test.cpp)
 
 

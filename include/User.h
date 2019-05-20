@@ -3,14 +3,14 @@
 
 #include <iostream>
 #include <map>
-#include "Person.h"
 #include "Contest.h"
 #include "Status.h"
 #include "Document.h"
+#include "Subscriber.h"
 
 using std::map;
 
-class User : public Person {
+class User {
 public:
     User(){}
 
@@ -38,13 +38,13 @@ public:
     Status editContest(const string &contestId, const string &title, const string &task, time_t deadline);
 
 
-    /*Status registration(const string &newName, const string &newLogin, const string &newPassword);
+    Status registration(const string &newName, const string &newLogin, const string &newPassword);
     Status authorization();
     Status logout();
     Status rename(const string &renameField);
     Status changePassword(const string &oldPass, const string &newPass);
     Status setSessionId(const string &sessId);
-    string getSessionId();*/
+    string getSessionId();
 
     Contest *getStatUsersByContest(const string &contestID);
     Contest *getStatContest(const string &contestID);
@@ -59,6 +59,7 @@ private:
 
     map<std::string, Document> documents;
     bool admin;
+    Subscriber * subscriber;
 };
 
 #endif //PRJ_USER_H
