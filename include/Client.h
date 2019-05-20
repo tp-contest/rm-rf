@@ -24,45 +24,21 @@ using boost::property_tree::ptree;
 using boost::property_tree::read_json;
 using boost::property_tree::write_json;
 
+// ex:  client c(io_service, "127.0.0.1", "8080", "/tp-contest-api/", "GET", "45ezkf8vn1mgim686gwaaq61ry5y5gt4", "", "");
+// Client c(io_service, "jufc.ru", "",  "/", "POST", "45ezkf8vn1mgim686gwaaq61ry5y5gt4", "aleksander", "1111");
+
 class Client {
 public:
     Client(boost::asio::io_service& io_service,
-            const std::string& host, const std::string& path, const std::string& method, const std::string& sessId,
-            const std::string& name, const std::string& pass)
+    const std::string& host, const std::string& port, const std::string& path, const std::string& method, const std::string& sessId,
+    const std::string& name, const std::string& pass)
     : resolver_(io_service),
     socket_(io_service),
     method_(method),
     sessionId_(sessId),
     username_(name),
-    password_(pass) {
-        std::ostream request_stream(&request_);
-        request_stream << method + " " << path << " HTTP/1.1\r\n";
-        request_stream << "Host: " << host << "\r\n";
-        request_stream << "Cookie: sessionId=" << sessId;
-        if (name.empty() && pass.empty()) {
-            request_stream << "; username=" << name << "; " << "password=" << pass << "\r\n";
-        } else {
-            request_stream << "\r\n";
-        }
-        request_stream << "Accept: */*\r\n";
-        request_stream << "Connection: close\r\n\r\n";
-
-        tcp::resolver::query query(host, "http");
-        resolver_.async_resolve(query,
-                                boost::bind(&Client::resolve, this,
-                                            boost::asio::placeholders::error,
-                                            boost::asio::placeholders::iterator));
-    }
-
-    Client(boost::asio::io_service& io_service,
-            const std::string& host, const std::string& path, const std::string& method, boost::property_tree::ptree& body, const std::string& sessId,
-            const std::string& name, const std::string& pass)
-    : resolver_(io_service),
-    socket_(io_service),
-    method_(method),
-    sessionId_(sessId),
-    username_(name),
-    password_(pass) {
+    password_(pass)
+    {
         std::ostream request_stream(&request_);
         request_stream << method + " " << path << " HTTP/1.1\r\n";
         request_stream << "Host: " << host << "\r\n";
@@ -75,9 +51,80 @@ public:
         request_stream << "Accept: */*\r\n";
         request_stream << "Connection: keep-alive\r\n\r\n";
 
-        request_stream << body.data() << "\r\n";
+        tcp::resolver::query query(host, port);
+        resolver_.async_resolve(query,
+                                boost::bind(&Client::resolve, this,
+                                            boost::asio::placeholders::error,
+                                            boost::asio::placeholders::iterator));
+    }
+    Client(boost::asio::io_service& io_service,
+            const std::string& host, const std::string& port, const std::string& path, const std::string& method, boost::property_tree::ptree& body, const std::string& sessId,
+            const std::string& name, const std::string& pass)
+    : resolver_(io_service),
+    socket_(io_service),
+    method_(method),
+    sessionId_(sessId),
+    username_(name),
+    password_(pass)
+    {
+        std::ostream request_stream(&request_);
+        request_stream << method + " " << path << " HTTP/1.1\r\n";
+        request_stream << "Host: " << host << "\r\n";
+        request_stream << "Content-Length: " << body.size() << "\r\n";
+        request_stream << "Content-Type: multipart/form-data; boundary=--Asrf456BGe4h" << "\r\n";
+        request_stream << "Cookie: sessionId=" << sessId;
+        if (!name.empty() && !pass.empty()) {
+            request_stream << "; username=" << name << "; " << "password=" << pass << "\r\n";
+        } else {
+            request_stream << "\r\n";
+        }
+        request_stream << "Accept: */*\r\n";
+        request_stream << "Connection: keep-alive\r\n\r\n";
 
-        tcp::resolver::query query(host, "http");
+        request_stream << "--Asrf456BGe4h\r\n";
+        request_stream << "Content-Disposition: form-data; name=\"json\"\r\n";
+        request_stream << "Content-Type: application/json\r\n\r\n";
+        request_stream << body.data() << "\r\n";
+        request_stream << "--Asrf456BGe4h--\r\n";
+
+        tcp::resolver::query query(host, port);
+        resolver_.async_resolve(query,
+                                boost::bind(&Client::resolve, this,
+                                            boost::asio::placeholders::error,
+                                            boost::asio::placeholders::iterator));
+    }
+
+    Client(boost::asio::io_service& io_service,
+            const std::string& host, const std::string& port, const std::string& path, const std::string& method, const char* body, const std::string& filename, const std::string& sessId,
+            const std::string& name, const std::string& pass)
+    : resolver_(io_service),
+    socket_(io_service),
+    method_(method),
+    sessionId_(sessId),
+    username_(name),
+    password_(pass)
+    {
+        std::ostream request_stream(&request_);
+        request_stream << method + " " << path << " HTTP/1.1\r\n";
+        request_stream << "Host: " << host << "\r\n";
+        request_stream << "Content-Length: " << strlen(body) << "\r\n";
+        request_stream << "Content-Type: multipart/form-data; boundary=--Asrf456BGe4h" << "\r\n";
+        request_stream << "Cookie: sessionId=" << sessId;
+        if (!name.empty() && !pass.empty()) {
+            request_stream << "; username=" << name << "; " << "password=" << pass << "\r\n";
+        } else {
+            request_stream << "\r\n";
+        }
+        request_stream << "Accept: */*\r\n";
+        request_stream << "Connection: keep-alive\r\n\r\n";
+
+        request_stream << "--Asrf456BGe4h\r\n";
+        request_stream << "Content-Disposition: form-data; name=\"file\"; filename=\"" << filename << "\"\r\n";
+        request_stream << "Content-Type: application/octet-stream\r\n\r\n";
+        request_stream << body << "\r\n";
+        request_stream << "--Asrf456BGe4h--\r\n";
+
+        tcp::resolver::query query(host, port);
         resolver_.async_resolve(query,
                                 boost::bind(&Client::resolve, this,
                                             boost::asio::placeholders::error,
