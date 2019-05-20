@@ -9,6 +9,7 @@
 #include <fstream>
 #include "DocumentState.h"
 #include "DraftState.h"
+#include "PublishedState.h"
 #include "Status.h"
 #include "time.h"
 #include "DeletedState.h"
@@ -19,6 +20,10 @@ using std::ifstream;
 using std::stringstream;
 
 class Document {
+    /*friend class DocumentState;
+    friend class DraftState;
+    friend class DeletedState;
+    friend class PublishedState;*/
 
 protected:
     int ID;
@@ -38,7 +43,9 @@ protected:
     };
 
 public:
-    Document() : ID(-1), name(""), state(nullptr), file(nullptr) {};
+    Document() : ID(-1), name(""), file(nullptr) {
+        state = new DraftState();
+    };
     ~Document() {
         delete file;
     };
@@ -48,29 +55,28 @@ public:
     };
 
 
-    Status editFile() {
-        state->editDocument();
+    Status editDocument() {
+        state->editDocument(this);
     }
 
     Status saveDocument() {
-        state->saveDocument();
-        calculateId();
+        state->saveDocument(this);
     }
 
-    Status deleteFile() {
-        state->deleteDocument();
+    Status deleteDocument() {
+        state->deleteDocument(this);
 
         delete state;
         state = new DeletedState();
 
-        if (!file)
+        /*if (!file)
             return ERROR;
         ID = -1;
         name = "";
         state = nullptr;
         delete file;
         file = nullptr;
-        return OK;
+        return OK;*/
     }
 
     Status loadFromPath(std::string path) {
@@ -94,7 +100,7 @@ public:
         }
 
         infile.read(file, length);
-        state = new DraftState();
+        //state = DraftState();
 
         return OK;
     };

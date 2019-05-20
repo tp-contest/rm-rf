@@ -12,15 +12,16 @@ public:
     DeletedState() {};
     ~DeletedState() {};
 
-    Status saveDocument() override {
-
+    Status saveDocument(Document * doc) override {
+        return ERROR;
     };
 
-    Status editDocument() override {
-
+    Status editDocument(Document * doc) override {
+        return ERROR;
     };
-    Status deleteDocument() override {
 
+    Status deleteDocument(Document * doc) override {
+        return ERROR;
     };
 };
 

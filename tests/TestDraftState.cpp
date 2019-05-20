@@ -6,7 +6,7 @@
 #include "../include/UserFile.h"
 #include "../include/DraftState.h"
 
-TEST(DraftStateSuit, editDocument) {
+/*TEST(DraftStateSuit, editDocument) {
     UserFile document = UserFile();
     DraftState state = DraftState();
     bool result = state.saveDocument();
@@ -25,4 +25,4 @@ TEST(DraftStateSuit, saveDocument) {
     DraftState state = DraftState();
     bool result = state.saveDocument();
     ASSERT_TRUE(result);
-}
+}*/

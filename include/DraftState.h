@@ -6,32 +6,23 @@
 #define PRJ_DRAFTSTATE_H
 
 #include "DocumentState.h"
-//#include "Document.h"
 
 class DraftState: public DocumentState{
-private:
-   // Document * document;
+    friend class Document;
 public:
-    DraftState() {
-    }
-    /*DraftState(Document & doc) {
-        document = &doc;
-        std::cout << "draft constructor" << std::endl;
-    };*/
-    ~DraftState(){
+    ~DraftState(){};
+    DraftState() {};
 
-    };
-    Status saveDocument() override {
-        std::cout << "draft saving" << std::endl;
+    Status saveDocument(Document * doc) override {
         return ERROR;
     }
-    Status editDocument() override {
+    Status editDocument(Document * doc) override {
         return ERROR;
     };
-    Status deleteDocument() override {
+
+    Status deleteDocument(Document * doc) override {
         return ERROR;
     };
 };
-
 
 #endif //PRJ_DRAFTSTATE_H

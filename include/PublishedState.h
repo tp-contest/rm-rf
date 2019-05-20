@@ -5,21 +5,23 @@
 #ifndef PRJ_PUBLISHEDSTATE_H
 #define PRJ_PUBLISHEDSTATE_H
 
-#include "Document.h"
+#include "DocumentState.h"
 
 class PublishedState: public DocumentState {
 public:
     PublishedState() {};
     ~PublishedState() {};
 
-    Status saveDocument() override {
-
+    Status saveDocument(Document * doc) override {
+        return ERROR;
     };
-    Status editDocument() override {
 
+    Status editDocument(Document * doc) override {
+        return ERROR;
     };
-    Status deleteDocument() override {
 
+    Status deleteDocument(Document * doc) override {
+        return ERROR;
     };
 };
 

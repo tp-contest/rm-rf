@@ -67,16 +67,11 @@ int main() {
     delete userHandler;
     delete adminHandler;*/
 
-    Document * document = new Document;
-
-    int i = document->loadFromPath("../1.png");
-    char * str = document->getFile();
-    std::cout << "i = "<< i << " str =" << str;
-
-    document->deleteFile();
-    str = document->getFile();
-    std::cout << "i = "<< i << " str =" << str;
-    delete document;
+    /*Document * document = new Document();
+    document->editDocument();
+    document->deleteDocument();
+    document->editDocument();
+    delete document;*/
 
     /*noUserHandler->setNext(userHandler);
 

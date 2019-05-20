@@ -8,13 +8,18 @@
 #include <iostream>
 #include "Status.h"
 
+
+class Document;
 class DocumentState {
+protected:
+    Document * document;
 public:
     DocumentState() {};
     ~DocumentState() {};
-    virtual Status saveDocument() = 0;
-    virtual Status editDocument() = 0;
-    virtual Status deleteDocument() = 0;
+
+    virtual Status saveDocument(Document * doc) = 0;
+    virtual Status editDocument(Document * doc) = 0;
+    virtual Status deleteDocument(Document * doc) = 0;
 };
 
 #endif //PRJ_DOCUMENTSTATE_H
