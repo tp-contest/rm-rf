@@ -6,7 +6,7 @@
 #define PRJ_SUBSCRIBER_H
 
 #include "ISubscriber.h"
-#include "Handler.h"
+//#include "Handler.h"
 #include "Parser.h"
 #include "Status.h"
 #include "Commit.h"
@@ -23,7 +23,7 @@ typedef struct {
 
 class Subscriber : public ISubscriber {
 private:
-    Handler * handler;
+    //Handler * handler;
     Parser * parser;
     bool checkAnswer(const std::string & answer);
 
@@ -31,23 +31,22 @@ private:
     StatCommit *commits;
 
 public:
-    Subscriber() : handler(nullptr), parser(nullptr){};
-    Subscriber(Handler & hdlr, Parser & prsr) {
-        handler = &hdlr;
+    Subscriber() : parser(nullptr){};
+    Subscriber( Parser & prsr) {
         parser = &prsr;
     }
     ~Subscriber() override {};
 
     void handleServerAnswer(const std::string & answer) override {
-        if (handler != nullptr && answer.c_str() != nullptr) {
+        if ( answer.c_str() != nullptr) {
             //handler->getInfo();
             std::cout << answer << std::endl;
         }
     };
 
-    Handler * getHandler() {
+    /*Handler * getHandler() {
         return handler;
-    }
+    }*/
 
     Parser * getParser() {
         return parser;

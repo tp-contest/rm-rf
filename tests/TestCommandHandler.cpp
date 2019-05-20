@@ -3,7 +3,6 @@
 //
 
 #include "gtest/gtest.h"
-#include "../include/CommandHandler.h"
 #include "../include/UserFile.h"
 #include <stdexcept>
 #include <iostream>

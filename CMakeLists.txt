@@ -3,7 +3,7 @@ project(prj)
 
 set(CMAKE_CXX_STANDARD 14)
 add_subdirectory(lib/googletest)
-include_directories(lib/googletest/googletest/include)
+include_directories(lib/googletest/googletest/include include src)
 
 add_executable(prj
         include/Admin.h

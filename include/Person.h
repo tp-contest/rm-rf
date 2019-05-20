@@ -23,7 +23,7 @@ protected:
     string sessionId;
     Subscriber * subscriber;
 public:
-//    Person() {};
+    Person() {};
     ~Person() {};
     Status registration(const string &newName, const string &newLogin, const string &newPassword);
     Status authorization();

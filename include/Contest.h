@@ -8,11 +8,12 @@
 #include <string>
 #include <map>
 #include "Commit.h"
-#include "../include/Status.h"
+#include "Status.h"
+#include "Document.h"
 
 using std::map;
 
-class Contest {
+class Contest : public Document  {
 private:
     string ID;
     string title;

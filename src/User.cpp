@@ -1,11 +1,12 @@
 //
 // Created by Sanya on 06.05.2019.
 //
-#include "../include/User.h"
-#include "../include/Status.h"
+
+#include "User.h"
+//#include "../include/Status.h"
 
 void User::addContest(Contest &contest) {
-    contests.insert(std::pair<string, Contest>(contest.getContestId(), contest));
+    documents.insert(std::pair<std::string, Document>("", contest));
 }
 
 Status User::sendCommit(string &ContestID, Commit &commit) {
@@ -25,7 +26,7 @@ Status User::applyForContest(Contest &newContest) {
 }
 
 void User::deleteContest(const string &contestID) {
-    contests.erase(contestID);
+    documents.erase(contestID);
 }
 
 Contest *User::showContestByUser(const string &userID) {

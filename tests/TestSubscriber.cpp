@@ -7,7 +7,6 @@
 #include "../include/Subscriber.h"
 #include "../include/Handler.h"
 #include "../include/Parser.h"
-#include "../include/CommandHandler.h"
 #include "assert.h"
 #include "../include/JsonParser.h"
 

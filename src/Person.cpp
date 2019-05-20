@@ -2,8 +2,7 @@
 // Created by horosheninad
 //
 
-#include "../include/Person.h"
-#include "../include/Subscriber.h"
+#include "Person.h"
 
 Status Person::registration(const string &newName, const string &newLogin, const string &newPassword) {
     if (newPassword.empty() || newLogin.empty()) {

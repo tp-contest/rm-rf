@@ -1,15 +1,15 @@
 #include <iostream>
-#include "../include/Document.h"
-#include "../include/DraftState.h"
-#include "../include/UserFile.h"
-#include "../include/Publisher.h"
-#include "../include/Subscriber.h"
-#include "../include/JsonParser.h"
+#include "Document.h"
+#include "DraftState.h"
+#include "UserFile.h"
+#include "Publisher.h"
+#include "Subscriber.h"
+#include "JsonParser.h"
 
 #include "gtest/gtest.h"
-#include "../include/NoUserHandler.h"
-#include "../include/UserHandler.h"
-#include "../include/AdminHandler.h"
+#include "NoUserHandler.h"
+#include "UserHandler.h"
+#include "AdminHandler.h"
 #include <vector>
 
 int main() {
@@ -62,6 +62,7 @@ int main() {
         }
     }
 
+    delete user;
     delete noUserHandler;
     delete userHandler;
     delete adminHandler;
