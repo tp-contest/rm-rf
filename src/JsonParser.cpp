@@ -1,230 +1,122 @@
 //
-// Created by alex on 05.05.2019.
+// Created by d on 07.04.19.
 //
 
-#include "../includes/JsonParser.h"
-#include "../includes/StringExtend.h"
-#include "../includes/UTF8.h"
+#include "../include/JsonParser.h"
 
-namespace {
-    //must be escaped
-    const std::set<char> CHAR_TO_ESCAPE{
-            '"', '\\', '\b', '\f', '\n', '\r', '\t',
-    };
-}
-
-namespace JsonParser{
-    struct JsonParser::Impl{
-
-        enum class Type{
-            Null,  Bolean, Invalid, String, Integer, Object,
-        };
-
-        Type type = Type::Invalid;
-
-        union{
-            bool BooleanValue;
-            std::string* StringValue;
-            int IntegerValue;
-        };
-
-        //Constructors and destructor
-
-        Impl(const Impl&) = delete;
-
-        Impl(Impl&&) = delete;
-
-        Impl&operator = (const Impl&) = delete;
-
-        Impl&operator = (Impl&&) = delete;
-        ~Impl(){
-            switch (type) {
-                case Impl::Type::String :{
-                    delete StringValue;
-                }
-                    break;
-
-                default:
-                    break;
-            }
-
-        };
-
-        //Methods
-
-        Impl() = default;
-    };
-
-    //default components of class
-    JsonParser::~JsonParser() = default;
-    JsonParser::JsonParser(JsonParser &&) = default;
-    JsonParser &JsonParser::operator=(JsonParser &&) = default;
-
-    bool JsonParser::operator==(const JsonParser &other) const {
-        if (impl_->type!=other.impl_->type){
-        return false;}
-        else switch (impl_->type){
-                case Impl::Type::Null:
-                    return true;
-                case Impl::Type::Bolean:
-                    return  impl_->BooleanValue == other.impl_->BooleanValue;
-                case Impl::Type::String:
-                    return *impl_->StringValue == *other.impl_->StringValue;
-                case Impl::Type::Integer:
-                    return impl_->IntegerValue == other.impl_->IntegerValue;
-                default:
-                    return true;
-        }
-    }
-
-//    std::shared_ptr<JsonParser> JsonParser::operator[](const std::string&  key) const {
-//        return (*this)[(size_t)index];
-//    }
-//
-//    std::shared_ptr<JsonParser> JsonParser::operator[](char*  key) const{
-//        return (*this)[std::string(key)];
-//    }
-
-
-    //Class's constructors
-    JsonParser::JsonParser() : impl_(new Impl){}
-
-        //Null constructor
-    JsonParser::JsonParser(nullptr_t null): impl_(new Impl) {
-        impl_->type = Impl::Type::Null;
-    }
-
-        //Bool constructor
-    JsonParser::JsonParser(bool value): impl_(new Impl)
+int JsonParser::JsonContest(const Contestjson &contest)  {
     {
-        impl_->type = Impl::Type::Bolean;
-        impl_->BooleanValue = value;
-    }
+        try {
 
-        //String constructor
-    JsonParser::JsonParser(const std::string& value): impl_(new Impl){
-        impl_->type = Impl::Type::String;
-        impl_->StringValue = new std::string(value);
-    }
+            Contestjson contestin(contest);
+            pt::ptree contestout;
 
-        //Integer constructor
-//    JsonParser::JsonParser(int value)
-//            : impl_(new Impl)
-//    {
-//        impl_->type = Type::Integer;
-//        impl_->integerValue = value;
-//    }
+            contestout.put("task_id", contestin.tasks_list_id);
+            contestout.put("script_id", contestin.script_id);
+            contestout.put("contest_id", contestin.contest_id);
 
-    //Writing JSON
-    std::string JsonParser::ToString() const {
-
-        switch (impl_->type){
-            case Impl::Type::Null:
-                return "null";
-            case Impl::Type::Bolean:
-                return  impl_->BooleanValue ? "true" : "false";
-            case Impl::Type::String:
-                return ("\""+StringExtend::Escape(*impl_->StringValue, '\\', CHAR_TO_ESCAPE) +"\"");
-//            case Impl::Type::Integer: {
-//                impl_->encoding = StringExtend::sprintf("%i", impl_->integerValue);
-//            } break;
-            default:
-                return "smthg went wrong";
+            pt::write_json(boost::asio::streambuf, contestout);
         }
-        return ""; //std::__cxx11::string();
-    }
-
-    //Reading JSON
-    JsonParser JsonParser::FromString(const std::string &format) {
-
-        if(format == "null") {
-            return nullptr;
-        } else if (format == "true"){
-            return true;
-        } else if (format == "false"){
-            return false;
-        } else if (!format.empty() && (format[0]== '"') && (format[format.length() - 1] == '"')){
-            return StringExtend::Unescape(format.substr(1, format.length()-2), '\\');
+        catch(const boost::property_tree::ptree_error& e) {
+            std::cerr << "Boost property tree error: " << e.what() << std::endl;
+            return EXIT_FAILURE;
         }
-        else { return JsonParser();}
-    }
-
-//    auto JsonParser::GetType() const -> Type {
-//        if (impl_ == nullptr) {
-//            return Type::Invalid;
-//        }
-//        return impl_->type;
-//    }
-
-//    bool JsonParser::Has(const std::string& key) const {
-//        if (GetType() == Type::Object) {
-//            return (impl_->objectValue->find(key) != impl_->objectValue->end());
-//        } else {
-//            return false;
-//        }
-//    }
-
- /*   //parsing JSON Object
-    std::string ParseValue(const std::string& s, size_t& offset){
-
-        Utf8::Utf8 decoder, encoder;
-        std::stack<char > delimiters;
-        std::vector<Utf8::UnicodeCodePoint > EncodeValueCodePoints;
-
-        const auto  EncodingCodePoints = decoder.Decode(s.substr(offset));
-        if(EncodingCodePoints.empty()){
-            offset = std::string::npos;
-            return "";
+        catch (...) {
+            std::cerr << "Unknown error occurred" << std::endl;
+            return EXIT_FAILURE;
         }
 
-        bool insideString = false;
-        for(const auto cp: EncodingCodePoints){
-
-            EncodeValueCodePoints.push_back(cp)
-
-            if(!delimiters.empty() && (cp==delimiters.top())){
-                insideString = false;
-                delimiters.pop();
-                continue;
-            }
-
-            if(!insideString){
-
-            if(cp == (Utf8::UnicodeCodePoint)'\"'){
-                delimiters.push('\"');
-                insideString = true;
-            } else if(cp == (Utf8::UnicodeCodePoint)'['){
-                delimiters.push(']');
-            } else if(cp == (Utf8::UnicodeCodePoint)',' && delimiters.empty()){
-                break;
-            }
-            }
-
-        }
-        if(delimiters.empty()){
-            auto encodedValue = encoder.Encode(EncodeValueCodePoints);
-            offset += encodedValue.size();
-            if(EncodeValue.back() == (Utf8::UnicodeCodePoint)','){
-                EncodeValue.pop_back();
-            }
-
-            return std::string(encodedValue.begin(), encodedValue.end());
-        } else{
-            offset = std::string::npos;
-            return "";
-        }
+        return EXIT_SUCCESS;
     }
-
-    void ParseJSONObject(const std::string& s){
-        std::map<std::string, std::shared_ptr<JsonParser> > newObjectValue;
-        size_t  offset = 0;
-            while (offset < s.length()){
-                const auto EncodedKey = ParseValue(s, offset);
-                if(offset == std::string::npos){
-                    return;
-                }
-                const auto Key = std::make_shared<JsonParser>(From)
-            }
-    }
-*/
 }
+
+int JsonParser::JsonHuman(const Humanjson &manin) {
+    try {
+
+        Humanjson man(manin);
+        pt::ptree human;
+
+        human.put("name", man.name);
+        human.put("surname", man.surname);
+        human.put("password", man.password);
+        human.put("username", man.username);
+        human.put("group_id", man.group_id);
+
+        pt::write_json(boost::asio::streambuf, human);
+    }
+    catch(const boost::property_tree::ptree_error& e) {
+        std::cerr << "Boost property tree error: " << e.what() << std::endl;
+        return EXIT_FAILURE;
+    }
+    catch (...) {
+        std::cerr << "Unkown error occurred" << std::endl;
+        return EXIT_FAILURE;
+    }
+
+    return EXIT_SUCCESS;
+
+}
+
+int JsonParser::JsonMyContest(const MyContestjson &contest) {
+    {
+        try {
+
+            MyContestjson contestin(contest);
+            pt::ptree contestout;
+
+            contestout.put("file", contestin.file);
+            contestout.put("file_id", contestin.file_id);
+            contestout.put("script_id", contestin.user_id);
+            contestout.put("task_id", contestin.task_id);
+            contestout.put("package_id", contestin.package_id);
+            contestout.put("solution_id", contestin.solution_id);
+
+            pt::write_json(boost::asio::streambuf, contestout);
+        }
+        catch(const boost::property_tree::ptree_error& e) {
+            std::cerr << "Boost property tree error: " << e.what() << std::endl;
+            return EXIT_FAILURE;
+        }
+        catch (...) {
+            std::cerr << "Unknown error occurred" << std::endl;
+            return EXIT_FAILURE;
+        }
+
+        return EXIT_SUCCESS;
+    }
+
+}
+
+int JsonParser::JsonTask(const Taskjson &task) {
+    {
+
+        try {
+
+            Taskjson taskin(task);
+            //read let's register taskout
+            pt::ptree taskout;
+
+            taskout.put("task_id", taskin.task_id);
+            taskout.put("file", taskin.file);
+            taskout.put("description", taskin.description);
+            taskout.put("script_id", taskin.script_id);
+            taskout.put("contest_id", taskin.contest_id);
+
+            pt::write_json(boost::asio::streambuf, taskout);
+        }
+        catch(const boost::property_tree::ptree_error& e) {
+            std::cerr << "Boost property tree error: " << e.what() << std::endl;
+            return EXIT_FAILURE;
+        }
+        catch (...) {
+            std::cerr << "Unkown error occurred" << std::endl;
+            return EXIT_FAILURE;
+        }
+
+        return EXIT_SUCCESS;
+
+    }
+}
+
+
+
