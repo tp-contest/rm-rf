@@ -22,15 +22,11 @@ add_executable(prj
         include/Status.h
         include/Subscriber.h
         include/User.h
-        include/UserFile.h
         include/UserHandler.h
         src/AdminHandler.cpp
         src/Commit.cpp
         src/Contest.cpp
-        src/DraftState.cpp
         src/JsonParser.cpp
-        src/PublishedState.cpp
-        src/Publisher.cpp
         src/Subscriber.cpp
         src/main.cpp
         tests/TestAdmin.cpp

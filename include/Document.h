@@ -20,12 +20,12 @@ using std::ifstream;
 using std::stringstream;
 
 class Document {
-    /*friend class DocumentState;
+    friend class DocumentState;
     friend class DraftState;
     friend class DeletedState;
-    friend class PublishedState;*/
+    friend class PublishedState;
 
-protected:
+private:
     int ID;
     string name;
     DocumentState * state;
@@ -43,17 +43,20 @@ protected:
     };
 
 public:
+
     Document() : ID(-1), name(""), file(nullptr) {
         state = new DraftState();
     };
+
+    Document(std::string path) {
+        calculateId();
+        loadFromPath(path);
+    }
+
     ~Document() {
         delete file;
+        delete state;
     };
-
-    int getId() const {
-        return ID;
-    };
-
 
     Status editDocument() {
         state->editDocument(this);
@@ -100,13 +103,31 @@ public:
         }
 
         infile.read(file, length);
-        //state = DraftState();
 
         return OK;
     };
 
     char * getFile() {
         return file;
+    }
+
+    void setPublishState() {
+        delete state;
+        state = new PublishedState;
+    }
+
+    void setDeletedState() {
+        delete state;
+        state = new DeletedState;
+    }
+
+    void setDraftState() {
+        delete state;
+        state = new DraftState;
+    }
+
+    int getID() {
+        return ID;
     }
 
 };

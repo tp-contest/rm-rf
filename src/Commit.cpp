@@ -2,9 +2,7 @@
 // Created by horosheninad on 09.04.2019.
 //
 
-#include "../include/Commit.h"
-#include "../include/Status.h"
-#include <string>
+#include "Commit.h"
 
 string Commit::getCommitId() {
     return this->ID;

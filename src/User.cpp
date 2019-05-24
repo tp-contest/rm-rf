@@ -4,7 +4,7 @@
 
 #include "User.h"
 
-void User::addContest(Contest &contest) {
+/*void User::addContest(Contest &contest) {
     documents.insert(std::pair<std::string, Document>("", contest));
 }
 
@@ -56,7 +56,7 @@ Status User::registration(const string &newName, const string &newLogin, const s
 Status User::authorization() {
     /*if (Ok != subscriber->SendToServerAuth(this->sessionId)) {
         return ERROR;
-    }*/
+    }
     return OK;
 }
 
@@ -73,7 +73,7 @@ Status User::logout() {
         return ERROR;
     }
     // TODO::redirect to start page
-    this->sessionId.clear();*/
+    this->sessionId.clear();
     return OK;
 }
 
@@ -110,15 +110,15 @@ Status User::editContest(const string &contestId, const string &title, const str
     if (!contest.editDeadline(deadline)) {
         return ERROR;
     }
-    contests.at(contestId) = contest;*/
+    contests.at(contestId) = contest;
     return OK;
 };
 
 string User::createContest(const string &title, const string &task, time_t deadline) {
     /*Contest contest(title, task, deadline);
     documents.insert(std::pair<string, Contest>(contest.getContestId(), contest));
-    return contest.getContestId();*/
-}
+    return contest.getContestId();
+}*/
 
 /*Status User::deleteContest(const string &contestID) {
     documents.erase(contestID);

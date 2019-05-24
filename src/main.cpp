@@ -1,8 +1,6 @@
 #include <iostream>
 #include "Document.h"
 #include "DraftState.h"
-#include "UserFile.h"
-#include "Publisher.h"
 #include "Subscriber.h"
 #include "JsonParser.h"
 
@@ -36,7 +34,7 @@ int main() {
         std::cout << "not create";
     } */
 
-    /*User * user = nullptr;
+    User * user = nullptr;
     Handler * noUserHandler = new NoUserHandler();
     Handler * userHandler = new UserHandler();
     Handler * adminHandler = new AdminHandler();
@@ -65,7 +63,7 @@ int main() {
     delete user;
     delete noUserHandler;
     delete userHandler;
-    delete adminHandler;*/
+    delete adminHandler;
 
     /*Document * document = new Document();
     document->editDocument();

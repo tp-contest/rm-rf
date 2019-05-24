@@ -11,20 +11,7 @@
 using std::map;
 
 class User {
-public:
-    User(){}
-
-    User(std::string username, std::string password): username(username), password(password), admin(false) {
-        std::cout << "got user" << std::endl;
-    }
-
-    ~User(){}
-
-    bool isAdmin(){
-        return admin;
-    }
-
-    Status applyForContest(const Contest &newContest) { return OK; };
+    /*Status applyForContest(const Contest &newContest) { return OK; };
     Status sendCommit(string ContestID) { return OK; };
     Status applyForContest(Contest &newContest);
 
@@ -50,17 +37,43 @@ public:
     Contest *getStatUsersByContest(const string &contestID);
     Contest *getStatContest(const string &contestID);
     Commit *showCommits(const string &contestID);
-    string openUserCodeForLastCommit(const string &contestID) const;
+    string openUserCodeForLastCommit(const string &contestID) const;*/
 
 private:
-
     string ID;
     std::string username;
     std::string password;
 
     bool admin;
     Subscriber * subscriber;
-    map<std::string, Document> documents;
+    map<int, Document *> documents;
+
+public:
+    User(){}
+    User(std::string username, std::string password):
+        username(username),
+        password(password),
+        admin(false) {
+    }
+
+    ~User(){}
+
+    bool isAdmin(){
+        return admin;
+    }
+
+    void makeAdmin() {
+        admin = true;
+    }
+
+    Status addDocument(std::string path) {
+        Document * document = new Document(path);
+        documents.insert(std::pair<int, Document *>(document->getID(), document));
+        return OK;
+    }
+
+
+
 };
 
 #endif //PRJ_USER_H

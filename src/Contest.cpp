@@ -2,7 +2,7 @@
 // Created by horosheninad
 //
 
-#include "../include/Contest.h"
+#include "Contest.h"
 
 /*Contest::Contest(string title) {
     this->ID = '1'; // tools.GenerateUUID();

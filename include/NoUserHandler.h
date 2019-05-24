@@ -57,7 +57,6 @@ public:
         // TODO: push user to server //
 
         user = new User(username, password1);
-
         return true;
 
     }
@@ -75,6 +74,17 @@ public:
         // TODO: check if user exists//
 
         user = new User(username, password);
+
+        return true;
+    }
+
+    bool loginAsAdmin(User *& user) {
+        bool result = login(user);
+        user->makeAdmin();
+        return result;
+    }
+
+    bool addUserFile(std::string path) {
 
         return true;
     }

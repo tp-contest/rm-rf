@@ -3,8 +3,7 @@
 //
 
 #include "gtest/gtest.h"
-#include "../include/UserFile.h"
-#include "../include/DraftState.h"
+#include "DraftState.h"
 
 /*TEST(DraftStateSuit, editDocument) {
     UserFile document = UserFile();
