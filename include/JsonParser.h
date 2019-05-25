@@ -16,9 +16,9 @@
 namespace pt = boost::property_tree;
 
 class JsonParser: public Parser {
-private:
-    Subscriber * subscriber;
 public:
+
+    JsonParser(const Contestjson &contest);
 
     int  JsonContest(const Contestjson &contest);
 
@@ -27,7 +27,6 @@ public:
     int JsonMyContest(const MyContestjson &contest);
 
     int JsonTask(const Taskjson &task);
-
 };
 
 

@@ -7,7 +7,6 @@
 int JsonParser::JsonContest(const Contestjson &contest)  {
     {
         try {
-
             Contestjson contestin(contest);
             pt::ptree contestout;
 
